@@ -1,5 +1,6 @@
 package com.leorizick.recipeapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,12 +14,21 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class StepsAndIngredients {
+public class RecipeSteps {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String steps;
 
-    private String stepsOrIngredients;
+    @ManyToOne
+    @JoinColumn(name = "recipe_id")
+    @JsonIgnore
+    private Recipe recipe;
+
+    public RecipeSteps(Long id, String steps) {
+        this.id = id;
+        this.steps = steps;
+    }
 }

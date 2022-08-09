@@ -1,13 +1,13 @@
 package com.leorizick.recipeapp.dto;
 
 import com.leorizick.recipeapp.entities.RecipeCategory;
-import com.leorizick.recipeapp.entities.StepsAndIngredients;
+import com.leorizick.recipeapp.entities.RecipeSteps;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -25,8 +25,6 @@ public class RecipeDto {
     private RecipeCategory category;
 
 
-    private List<StepsAndIngredients> ingredients;
-
-
-    private List<StepsAndIngredients> steps;
+    private String ingredients;
+    private List<RecipeSteps> steps = new ArrayList<>();
 }

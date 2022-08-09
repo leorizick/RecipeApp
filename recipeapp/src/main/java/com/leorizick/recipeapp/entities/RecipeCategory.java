@@ -25,4 +25,8 @@ public class RecipeCategory {
     @OneToMany(mappedBy = "category")
     private List<Recipe> recipes;
 
+    public RecipeCategory(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

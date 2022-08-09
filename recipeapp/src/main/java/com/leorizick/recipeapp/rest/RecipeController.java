@@ -42,7 +42,7 @@ public class RecipeController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Recipe> update(@RequestBody RecipeDto recipeDto) {
+    public ResponseEntity<Recipe> update(@PathVariable Integer id, @RequestBody RecipeDto recipeDto) {
         Recipe updatedRecipe = service.update(recipeDto);
         return ResponseEntity
                 .noContent()

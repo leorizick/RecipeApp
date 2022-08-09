@@ -18,6 +18,7 @@ public class RecipeCategoryController {
     private RecipeCategoryservice service;
 
     @GetMapping(value = "/{id}")
+    @ResponseBody
     public ResponseEntity<RecipeCategory> find(Long id) {
         RecipeCategory category = service.find(id);
         return ResponseEntity
@@ -26,6 +27,7 @@ public class RecipeCategoryController {
     }
 
     @GetMapping
+    @ResponseBody
     public ResponseEntity<Page<RecipeCategory>> findAll(Pageable pageable) {
         Page<RecipeCategory> categories = service.findAll(pageable);
         return ResponseEntity
