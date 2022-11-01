@@ -1,0 +1,18 @@
+spring:
+  liquibase:
+    change-log: 'classpath:db/dbchanges.xml'
+  datasource:
+    url: 'jdbc:mysql://localhost:3307/recipeApp?createDatabaseIfNotExist=true'
+    username: root
+    password: root
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+      jackson:
+        default-property-inclusion: non_null
+
+recipeapp:
+  security:
+    jwt:
+      password: 'rKqimrUg8L2OnlFJT59JVXRaJ'
+      expiration-time: 5400
+

@@ -1,0 +1,69 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221019-creating-table-category.xml" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="category" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="category">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="version" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="ingredients" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_category_id" references="category(id)"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="20221019-create-cateogry-name-index" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="idx-category-name" />
+            </not>
+        </preConditions>
+
+        <createIndex tableName="category" indexName="idx-category-name">
+            <column name="name" />
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>
