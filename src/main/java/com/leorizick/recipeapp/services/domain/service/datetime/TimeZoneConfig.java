@@ -12,4 +12,5 @@ public class TimeZoneConfig {
     public void timeZone(){
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
+
 }

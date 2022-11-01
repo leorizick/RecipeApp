@@ -2,9 +2,7 @@ package com.leorizick.recipeapp.web.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
-import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.services.api.service.recipe.RecipeApiService;
-import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -40,8 +38,8 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('CREATE_RECIPE')")
     @PostMapping(value = "/api/recipe/create")
-    public ResponseEntity<RecipeCrudResponse> createRecipe(@RequestBody RecipeCreationRequest recipeCreationRequest) {
-        RecipeCrudResponse recipeCrudResponse = recipeApiService.save(recipeCreationRequest);
+    public ResponseEntity<RecipeCrudResponse> create(@RequestBody RecipeCreationRequest recipeCreationRequest) {
+        RecipeCrudResponse recipeCrudResponse = recipeApiService.create(recipeCreationRequest);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(recipeCrudResponse);
@@ -49,8 +47,8 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('UPDATE_RECIPE')")
     @PutMapping(value = "/api/recipe/{id}")
-    public ResponseEntity<RecipeCrudResponse> updateRecipe(@PathVariable Long id, @RequestBody RecipeCreationRequest recipeCreationRequest) {
-        RecipeCrudResponse updatedRecipe = recipeApiService.updateRecipe(id, recipeCreationRequest);
+    public ResponseEntity<RecipeCrudResponse> update(@PathVariable Long id, @RequestBody RecipeCreationRequest recipeCreationRequest) {
+        RecipeCrudResponse updatedRecipe = recipeApiService.update(id, recipeCreationRequest);
         return ResponseEntity
                 .noContent()
                 .build();
@@ -58,12 +56,11 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('DELETE_RECIPE')")
     @DeleteMapping(value = "/api/recipe/{id}")
-    public ResponseEntity<Void> deleteRecipe(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         recipeApiService.deleteById(id);
         return ResponseEntity
                 .noContent()
                 .build();
     }
-
 
 }

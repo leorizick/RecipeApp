@@ -29,7 +29,6 @@ public class CredentialCrud {
 
     public Credential findById(Long id) {
         return credentialRepository.findById(id).orElseThrow(() -> new NotFoundException(String.format(NOT_FOUND_MESSAGE, id)));
-
     }
 
     public Page<Credential> findAll(Pageable pageable) {

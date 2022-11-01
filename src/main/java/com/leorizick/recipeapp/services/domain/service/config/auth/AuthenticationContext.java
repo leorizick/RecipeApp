@@ -37,4 +37,5 @@ public class AuthenticationContext {
         return accountRepository.findById(getAccountId())
                 .orElseThrow(() -> new NotFoundException(String.format(ACCOUNT_NOT_FOUND_MSG, getAccountId())));
     }
+
 }

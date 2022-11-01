@@ -39,10 +39,6 @@ public class RecipeLike {
         id = new RecipeLikePK();
         setRecipe(recipe);
         setAccount(account);
-
     }
-
-
-
 
 }

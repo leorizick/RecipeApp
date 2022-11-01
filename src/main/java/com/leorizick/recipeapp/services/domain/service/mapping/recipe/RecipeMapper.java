@@ -1,7 +1,6 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
-import com.leorizick.recipeapp.dto.recipe.RecipeUpdateRequest;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCategoryCrud;

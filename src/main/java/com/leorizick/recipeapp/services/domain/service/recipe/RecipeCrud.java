@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Service
 public class RecipeCrud {
@@ -22,21 +21,14 @@ public class RecipeCrud {
                 .orElseThrow(() -> new NotFoundException("Receita não encontrada! Id: " + id));
     }
 
-
     public Page<Recipe> findAll(Pageable pageable) {
         return recipeRepository.findAll(pageable);
     }
 
     @Transactional
-    public Recipe save(Recipe recipe) {
+    public Recipe create(Recipe recipe) {
         return recipeRepository.save(recipe);
     }
-
-//    @Transactional
-//    public Recipe update(RecipeDto recipeDto) {
-//        Recipe updatedRecipe = findById(recipeDto.getId());
-//        return recipeRepository.save(updatedRecipe);
-//    }
 
     @Transactional
     public void deleteById(Long id) {

@@ -29,16 +29,16 @@ public class RecipeApiService {
     }
 
     @Transactional
-    public RecipeCrudResponse save(RecipeCreationRequest recipeCreationRequest) {
+    public RecipeCrudResponse create(RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = modelMapper.map(recipeCreationRequest, Recipe.class);
-        recipe = recipeCrud.save(recipe);
+        recipe = recipeCrud.create(recipe);
         return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
-    public RecipeCrudResponse updateRecipe(Long id, RecipeCreationRequest recipeCreationRequest) {
+    public RecipeCrudResponse update(Long id, RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = recipeCrud.findById(id);
         modelMapper.map(recipeCreationRequest, recipe);
-        recipe = recipeCrud.save(recipe);
+        recipe = recipeCrud.create(recipe);
         return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
@@ -47,6 +47,5 @@ public class RecipeApiService {
         recipeCrud.deleteById(id);
 
     }
-
 
 }
