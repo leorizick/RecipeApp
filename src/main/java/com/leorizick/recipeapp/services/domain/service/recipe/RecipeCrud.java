@@ -1,0 +1,41 @@
+package com.leorizick.recipeapp.services.domain.service.recipe;
+
+import com.leorizick.recipeapp.entities.recipe.Recipe;
+import com.leorizick.recipeapp.repositories.RecipeRepository;
+import com.leorizick.recipeapp.services.exceptions.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+
+@Service
+public class RecipeCrud {
+
+    @Autowired
+    private RecipeRepository recipeRepository;
+
+    public Recipe findById(Long id) {
+        return recipeRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Receita não encontrada! Id: " + id));
+    }
+
+    public Page<Recipe> findAll(Pageable pageable) {
+        return recipeRepository.findAll(pageable);
+    }
+
+    @Transactional
+    public Recipe create(Recipe recipe) {
+        return recipeRepository.save(recipe);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        Recipe recipe = findById(id);
+        recipe.setEnabled(false);
+        recipeRepository.save(recipe);
+
+    }
+
+}

@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221019-creating-table-profile-role.xml" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="profile_role" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="profile_role">
+
+            <column name="profile_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_profile_role" references="profile(id)"/>
+            </column>
+
+            <column name="role_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_role_profile" references="role(id)"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

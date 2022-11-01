@@ -1,0 +1,40 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221022-inserting-profile-and-role" author="leorizick">
+        <insert tableName="profile">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="ADMIN"/>
+            <column name="description" value="admin of sistem"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="USER"/>
+            <column name="description" value="Basic User"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="CREATE_ADMIN_ACCOUNT"/>
+            <column name="description" value="Can create a ADMIN-ACCOUNT"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'CREATE_ADMIN_ACCOUNT')"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

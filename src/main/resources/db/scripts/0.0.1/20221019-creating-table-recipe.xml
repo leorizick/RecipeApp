@@ -1,0 +1,73 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221019-creating-table-recipe.xml" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="recipe" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="recipe">
+            <column name="id" type="BIGINT" autoIncrement="true" >
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="version" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="ingredients" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_recipe_category_id" references="recipe_category(id)"/>
+            </column>
+
+            <column name="account_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_recipe_account_id" references="account(id)"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="20221019-create-recipe-name-index" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="idx-recipe-name" />
+            </not>
+        </preConditions>
+
+        <createIndex tableName="recipe" indexName="idx-recipe-name">
+            <column name="name" />
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>

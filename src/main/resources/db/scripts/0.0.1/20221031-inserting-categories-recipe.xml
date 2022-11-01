@@ -1,0 +1,80 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221031-inserting-categories-recipe" author="leorizick">
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Aves"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Carne bovina"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Carne suina"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Massas"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Sobremesas"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Vegetariano"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Vegano"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Fit"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Saudavel"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

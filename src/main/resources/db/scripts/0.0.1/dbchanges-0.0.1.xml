@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <include relativeToChangelogFile="true" file="20221019-creating-table-account.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-credential.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-profile.xml" />
+<!--    <include relativeToChangelogFile="true" file="20221019-creating-table-category.xml" />-->
+    <include relativeToChangelogFile="true" file="20221019-creating-table-recipe-category.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-recipe.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-role.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-credential-profile.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-profile-role.xml" />
+    <include relativeToChangelogFile="true" file="20221019-creating-table-recipe-step.xml" />
+    <include relativeToChangelogFile="true" file="20221022-inserting-profile-and-role.xml" />
+    <include relativeToChangelogFile="true" file="20221022-inserting-user-admin.xml" />
+    <include relativeToChangelogFile="true" file="20221031-creating-table-recipe-like.xml" />
+    <include relativeToChangelogFile="true" file="20221031-inserting-categories-recipe.xml" />
+    <include relativeToChangelogFile="true" file="20221031-inserting-recipe-role.xml" />
+
+</databaseChangeLog>
