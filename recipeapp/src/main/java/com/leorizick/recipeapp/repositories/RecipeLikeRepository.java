@@ -9,7 +9,7 @@ public interface RecipeLikeRepository extends JpaRepository<RecipeLike, Long> {
 
     @Modifying
     @Query("delete from RecipeLike rl where rl.recipe.id = :recipeId and rl.account.id = :accountId")
-    void deleteByCommentAndAccountId(Long recipeId, Long accountId);
+    void deleteByRecipeAndAccountId(Long recipeId, Long accountId);
 
     @Query("select count(*) from RecipeLike rl where rl.recipe.id = :recipeId")
     Long likeCount(Long recipeId);

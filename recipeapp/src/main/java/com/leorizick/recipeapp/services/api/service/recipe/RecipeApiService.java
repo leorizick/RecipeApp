@@ -1,7 +1,7 @@
 package com.leorizick.recipeapp.services.api.service.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
-import com.leorizick.recipeapp.dto.recipe.RecipeCreationResponse;
+import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
 import lombok.RequiredArgsConstructor;
@@ -18,30 +18,35 @@ public class RecipeApiService {
     private final RecipeCrud recipeCrud;
     private final ModelMapper modelMapper;
 
-    public Recipe find(Long id) {
-        return recipeCrud.find(id);
+    public RecipeCrudResponse findById(Long id) {
+        Recipe recipe = recipeCrud.findById(id);
+        return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
-    public Page<Recipe> findAll(Pageable pageable) {
-        return recipeCrud.findAll(pageable);
+    public Page<RecipeCrudResponse> findAll(Pageable pageable) {
+        Page<Recipe> recipePage = recipeCrud.findAll(pageable);
+        return recipePage.map(recipe -> modelMapper.map(recipe, RecipeCrudResponse.class));
     }
 
     @Transactional
-    public RecipeCreationResponse save(RecipeCreationRequest recipeCreationRequest) {
+    public RecipeCrudResponse save(RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = modelMapper.map(recipeCreationRequest, Recipe.class);
         recipe = recipeCrud.save(recipe);
-        return modelMapper.map(recipe, RecipeCreationResponse.class);
+        return modelMapper.map(recipe, RecipeCrudResponse.class);
+    }
+
+    public RecipeCrudResponse updateRecipe(Long id, RecipeCreationRequest recipeCreationRequest) {
+        Recipe recipe = recipeCrud.findById(id);
+        modelMapper.map(recipeCreationRequest, recipe);
+        recipe = recipeCrud.save(recipe);
+        return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
     @Transactional
-    public void delete(Long id) {
-        Recipe recipe = find(id);
-        recipe.setEnabled(false);
-        recipeCrud.save(recipe);
+    public void deleteById(Long id) {
+        recipeCrud.deleteById(id);
 
     }
 
-    public Recipe updateRecipe(RecipeCreationRequest recipeCreationRequest) {
-        return null;
-    }
+
 }

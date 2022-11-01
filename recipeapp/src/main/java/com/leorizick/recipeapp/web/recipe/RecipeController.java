@@ -1,9 +1,10 @@
 package com.leorizick.recipeapp.web.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
-import com.leorizick.recipeapp.dto.recipe.RecipeCreationResponse;
+import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.services.api.service.recipe.RecipeApiService;
+import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,8 +22,8 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")
     @GetMapping(value = "/api/recipe/{id}")
-    public ResponseEntity<Recipe> findRecipeById(@PathVariable Long id) {
-        Recipe recipe = recipeApiService.find(id);
+    public ResponseEntity<RecipeCrudResponse> findRecipeById(@PathVariable Long id) {
+        RecipeCrudResponse recipe = recipeApiService.findById(id);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(recipe);
@@ -30,8 +31,8 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")
     @GetMapping(value = "/api/recipe")
-    public ResponseEntity<Page<Recipe>> findAll(Pageable pageable) {
-        Page<Recipe> recipePage = recipeApiService.findAll(pageable);
+    public ResponseEntity<Page<RecipeCrudResponse>> findAll(Pageable pageable) {
+        Page<RecipeCrudResponse> recipePage = recipeApiService.findAll(pageable);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(recipePage);
@@ -39,17 +40,17 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('CREATE_RECIPE')")
     @PostMapping(value = "/api/recipe/create")
-    public ResponseEntity<RecipeCreationResponse> createRecipe(@RequestBody RecipeCreationRequest recipeCreationRequest) {
-        RecipeCreationResponse recipeCreationResponse = recipeApiService.save(recipeCreationRequest);
+    public ResponseEntity<RecipeCrudResponse> createRecipe(@RequestBody RecipeCreationRequest recipeCreationRequest) {
+        RecipeCrudResponse recipeCrudResponse = recipeApiService.save(recipeCreationRequest);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(recipeCreationResponse);
+                .body(recipeCrudResponse);
     }
 
     @PreAuthorize("hasAuthority('UPDATE_RECIPE')")
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Recipe> updateRecipe(@PathVariable Integer id, @RequestBody RecipeCreationRequest recipeCreationRequest) {
-        Recipe updatedRecipe = recipeApiService.updateRecipe(recipeCreationRequest);
+    @PutMapping(value = "/api/recipe/{id}")
+    public ResponseEntity<RecipeCrudResponse> updateRecipe(@PathVariable Long id, @RequestBody RecipeCreationRequest recipeCreationRequest) {
+        RecipeCrudResponse updatedRecipe = recipeApiService.updateRecipe(id, recipeCreationRequest);
         return ResponseEntity
                 .noContent()
                 .build();
@@ -58,7 +59,7 @@ public class RecipeController {
     @PreAuthorize("hasAuthority('DELETE_RECIPE')")
     @DeleteMapping(value = "/api/recipe/{id}")
     public ResponseEntity<Void> deleteRecipe(@PathVariable Long id) {
-        recipeApiService.delete(id);
+        recipeApiService.deleteById(id);
         return ResponseEntity
                 .noContent()
                 .build();

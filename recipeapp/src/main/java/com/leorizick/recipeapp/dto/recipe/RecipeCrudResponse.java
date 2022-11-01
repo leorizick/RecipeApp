@@ -2,7 +2,6 @@ package com.leorizick.recipeapp.dto.recipe;
 
 
 import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
-import com.leorizick.recipeapp.services.domain.service.mapping.account.AccountSummaryResponseMapper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RecipeCreationResponse {
+public class RecipeCrudResponse {
 
     private Long id;
     private LocalDateTime createdAt;

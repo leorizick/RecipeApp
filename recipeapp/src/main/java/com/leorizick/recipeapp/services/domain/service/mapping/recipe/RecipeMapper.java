@@ -27,27 +27,18 @@ public class RecipeMapper {
     private void createFromRecipeCreationRequest() {
         modelMapper.createTypeMap(RecipeCreationRequest.class, Recipe.class).setConverter(context -> {
             var src = context.getSource();
-            return createFromCommonRecipeCreationRequestDTO(src);
+            var recipe = context.getDestination();
+            if(recipe == null){
+                recipe = new Recipe();
+            }
+            recipe.setName(src.getName());
+            recipe.setCategory(recipeCategoryCrud.findById(src.getCategoryId()));
+            recipe.setDescription(src.getDescription());
+            recipe.setIngredients(src.getIngredients());
+            recipe.setStep(new ArrayList<>());
+            recipe.setEnabled(true);
+            recipe.setAuthor(authenticationContext.getAccount());
+            return recipe;
         });
-    }
-
-    private void updateRecipeFromRecipeCreationRequest() {
-        modelMapper.createTypeMap(RecipeUpdateRequest.class, Recipe.class).setConverter(context -> {
-            var src = context.getSource();
-            return createFromCommonRecipeCreationRequestDTO(src);
-        });
-    }
-
-    private Recipe createFromCommonRecipeCreationRequestDTO(RecipeCreationRequest recipe) {
-
-        return Recipe.builder()
-                .name(recipe.getName())
-                .category(recipeCategoryCrud.findById(recipe.getCategoryId()))
-                .description(recipe.getDescription())
-                .ingredients(recipe.getIngredients())
-                .step(new ArrayList<>())
-                .enabled(true)
-                .author(authenticationContext.getAccount())
-                .build();
     }
 }

@@ -17,15 +17,14 @@ public class RecipeCrud {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    public Recipe find(Long id) {
-        Optional<Recipe> obj = recipeRepository.findById(id);
-        return obj.orElseThrow(() -> new NotFoundException("Receita não encontrada! Id: " + id));
+    public Recipe findById(Long id) {
+        return recipeRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Receita não encontrada! Id: " + id));
     }
 
 
     public Page<Recipe> findAll(Pageable pageable) {
-        Page<Recipe> recipePages = recipeRepository.findAll(pageable);
-        return recipePages;
+        return recipeRepository.findAll(pageable);
     }
 
     @Transactional
@@ -40,8 +39,8 @@ public class RecipeCrud {
 //    }
 
     @Transactional
-    public void delete(Long id) {
-        Recipe recipe = find(id);
+    public void deleteById(Long id) {
+        Recipe recipe = findById(id);
         recipe.setEnabled(false);
         recipeRepository.save(recipe);
 
