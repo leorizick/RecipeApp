@@ -31,6 +31,7 @@ public class RecipeMapper {
             var recipe = context.getDestination();
             if(recipe == null){
                 recipe = new Recipe();
+                recipe.setAuthor(authenticationContext.getAccount());
             }
 
             var steps = src.getSteps()
@@ -43,7 +44,7 @@ public class RecipeMapper {
             recipe.setIngredients(src.getIngredients());
             recipe.setStep(steps);
             recipe.setEnabled(true);
-            recipe.setAuthor(authenticationContext.getAccount());
+
             return recipe;
         });
     }

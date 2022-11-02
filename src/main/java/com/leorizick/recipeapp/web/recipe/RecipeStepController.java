@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class RecipeStepController {
 
     private final RecipeStepApiService recipeStepApiService;
 
+    @PreAuthorize("hasAuthority('CREATE_RECIPE_STEP')")
     @PostMapping(value = "api/recipe/{id}/step")
     public ResponseEntity<RecipeStepCrudResponse> create(@PathVariable Long id, @RequestBody RecipeStepCreationRequest recipeStepCreationRequest) {
         RecipeStepCrudResponse recipeStepCrudResponse = recipeStepApiService.create(id, recipeStepCreationRequest);
@@ -31,6 +33,7 @@ public class RecipeStepController {
                 .body(recipeStepCrudResponse);
     }
 
+    @PreAuthorize("hasAuthority('UPDATE_RECIPE_STEP')")
     @PutMapping(value = "api/recipe/{recipeId}/step/{stepId}")
     public ResponseEntity<RecipeStepCrudResponse> update(@PathVariable Long recipeId, @RequestBody RecipeStepCreationRequest recipeStepCreationRequest, @PathVariable Long stepId) {
         RecipeStepCrudResponse recipeStepCrudResponse = recipeStepApiService.update(recipeId, recipeStepCreationRequest, stepId);
@@ -39,6 +42,7 @@ public class RecipeStepController {
                 .build();
     }
 
+    @PreAuthorize("hasAuthority('DELETE_RECIPE_STEP')")
     @DeleteMapping(value = "api/recipe/step/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         recipeStepApiService.delete(id);
