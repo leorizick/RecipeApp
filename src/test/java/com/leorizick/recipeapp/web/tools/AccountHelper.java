@@ -17,7 +17,7 @@ public class AccountHelper {
     private static final LocalDate ANY_ACCOUNT_BIRTH = LocalDate.of(2022,10,6);
     private static final String ANY_ACCOUNT_EMAIL = "jurema@gmail.com";
     private static final String ANY_ACCOUNT_USERNAME = "jurema";
-    private static final String ANY_ACCOUNT_PASSWORD = "1q2w#E";
+    private static final String ANY_ACCOUNT_PASSWORD = "QWERT";
 
     private static final Set<String> EXPECTED_DEFAULT_ACCOUNT_PROFILES = Set.of("USER");
 

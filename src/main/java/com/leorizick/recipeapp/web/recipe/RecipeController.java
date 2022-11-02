@@ -50,7 +50,7 @@ public class RecipeController {
     public ResponseEntity<RecipeCrudResponse> update(@PathVariable Long id, @RequestBody RecipeCreationRequest recipeCreationRequest) {
         RecipeCrudResponse updatedRecipe = recipeApiService.update(id, recipeCreationRequest);
         return ResponseEntity
-                .noContent()
+                .status(HttpStatus.OK)
                 .build();
     }
 
