@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,7 +23,7 @@ public class RecipeCrudResponse {
     private String description;
     private String ingredients;
     private boolean enabled;
-    private List<String> step = new ArrayList<>();
+    private List<RecipeStepSummaryResponse> step;
     private String category;
     private AccountSummaryResponse author;
 

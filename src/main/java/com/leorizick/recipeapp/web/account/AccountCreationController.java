@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountCreationController {
     private final AccountApiService accountApiService;
 
-    @PostMapping(value = "/api/v1/account/create")
+    @PostMapping(value = "/api/account/create")
     public ResponseEntity<AccountCreationResponse> createAccount(@RequestBody AccountCreationRequest accountCreationRequest) {
         AccountCreationResponse accountCreationResponse = accountApiService.createAccount(accountCreationRequest);
         return ResponseEntity
@@ -26,7 +26,7 @@ public class AccountCreationController {
     }
 
     @PreAuthorize("hasAuthority('CREATE_ADMIN_ACCOUNT')")
-    @PostMapping(value = "/api/v1/admin/account/create")
+    @PostMapping(value = "/api/admin/account/create")
     public ResponseEntity<AccountCreationResponse> createAdminAccount(@RequestBody AccountAdminCreationRequest accountAdminCreationRequest) {
         AccountCreationResponse accountCreationResponse = accountApiService.createAdminAccount(accountAdminCreationRequest);
         return ResponseEntity

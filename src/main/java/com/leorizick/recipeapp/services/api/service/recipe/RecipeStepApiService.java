@@ -1,40 +1,41 @@
 package com.leorizick.recipeapp.services.api.service.recipe;
 
+import com.leorizick.recipeapp.dto.recipe.RecipeStepCreationRequest;
+import com.leorizick.recipeapp.dto.recipe.RecipeStepCrudResponse;
+import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
-import com.leorizick.recipeapp.repositories.RecipeStepsRepository;
-import com.leorizick.recipeapp.services.exceptions.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
+import com.leorizick.recipeapp.services.domain.service.recipe.RecipeStepCrud;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
+@RequiredArgsConstructor
 public class RecipeStepApiService {
 
-    @Autowired
-    private RecipeStepsRepository repository;
+    private final RecipeStepCrud recipeStepCrud;
+    private final RecipeCrud recipeCrud;
+    private final ModelMapper modelMapper;
 
-    public RecipeStep find(Long id){
-        Optional<RecipeStep> steps = repository.findById(id);
-        return steps.orElseThrow(() -> new NotFoundException("Não foram encontrados passos para essa receita! Id:" + id));
+    public RecipeStepCrudResponse create(Long id, RecipeStepCreationRequest recipeStepCreationRequest){
+        Recipe recipe = recipeCrud.findById(id);
+        RecipeStep recipeStep = modelMapper.map(recipeStepCreationRequest, RecipeStep.class);
+        recipeStep.setRecipe(recipe);
+        recipeStepCrud.save(recipeStep);
+        return modelMapper.map(recipeStep, RecipeStepCrudResponse.class);
     }
 
-    public Page<RecipeStep> findAll(Pageable pageable) {
-        Page<RecipeStep> stepsPages = repository.findAll(pageable);
-        return stepsPages;
-    }
-
-    public RecipeStep save(RecipeStep recipeSteps){
-        return repository.save(recipeSteps);
-    }
-
-    public RecipeStep update(RecipeStep recipeSteps){
-        return repository.save(recipeSteps);
+    public RecipeStepCrudResponse update(Long recipeid, RecipeStepCreationRequest recipeStepCreationRequest, Long stepId){
+        Recipe recipe = recipeCrud.findById(recipeid);
+        RecipeStep original = recipeStepCrud.findById(stepId);
+        modelMapper.map(recipeStepCreationRequest, original);
+        original.setRecipe(recipe);
+        var updated = recipeStepCrud.save(original);
+        return modelMapper.map(updated, RecipeStepCrudResponse.class);
     }
 
     public void delete(Long id){
-        repository.deleteById(id);
+        recipeStepCrud.delete(id);
     }
 }

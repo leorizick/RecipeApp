@@ -2,7 +2,10 @@ package com.leorizick.recipeapp.services.domain.service.recipe;
 
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.repositories.RecipeRepository;
+import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
+import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,10 +14,11 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class RecipeCrud {
 
-    @Autowired
-    private RecipeRepository recipeRepository;
+    private final RecipeRepository recipeRepository;
+    private final AuthenticationContext authenticationContext;
 
     public Recipe findById(Long id) {
         return recipeRepository.findById(id)
@@ -26,7 +30,11 @@ public class RecipeCrud {
     }
 
     @Transactional
-    public Recipe create(Recipe recipe) {
+    public Recipe save(Recipe recipe) {
+        var authAccountId = authenticationContext.getAccountId();
+        if (recipe.getId() != null && !authAccountId.equals(recipe.getAuthor().getId())){
+            throw new AccountTypeNotAllowed("author");
+        }
         return recipeRepository.save(recipe);
     }
 
