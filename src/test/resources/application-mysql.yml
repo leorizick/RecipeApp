@@ -1,0 +1,9 @@
+spring:
+  config:
+    import: file:src/main/resources/application.yml
+  datasource:
+    url: 'jdbc:tc:mysql:latest:///beroad-test'
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+server:
+  port: 8088
