@@ -26,7 +26,7 @@ public class RecipeCrud {
     }
 
     @Transactional
-    public Recipe create(Recipe recipe) {
+    public Recipe save(Recipe recipe) {
         return recipeRepository.save(recipe);
     }
 

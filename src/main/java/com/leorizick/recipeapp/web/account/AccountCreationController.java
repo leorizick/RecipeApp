@@ -26,7 +26,7 @@ public class AccountCreationController {
     }
 
     @PreAuthorize("hasAuthority('CREATE_ADMIN_ACCOUNT')")
-    @PostMapping(value = "/api/v1/admin/account/create")
+    @PostMapping(value = "/api/v1/admin/account/save")
     public ResponseEntity<AccountCreationResponse> createAdminAccount(@RequestBody AccountAdminCreationRequest accountAdminCreationRequest) {
         AccountCreationResponse accountCreationResponse = accountApiService.createAdminAccount(accountAdminCreationRequest);
         return ResponseEntity

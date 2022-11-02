@@ -3,38 +3,32 @@ package com.leorizick.recipeapp.services.domain.service.recipe;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.repositories.RecipeStepsRepository;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javax.transaction.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class RecipeStepCrud {
 
-    @Autowired
-    private RecipeStepsRepository repository;
+    private final RecipeStepsRepository recipeStepsRepository;
 
-    public RecipeStep find(Long id){
-        Optional<RecipeStep> steps = repository.findById(id);
-        return steps.orElseThrow(() -> new NotFoundException("Não foram encontrados passos para essa receita! Id:" + id));
+    public RecipeStep findById(Long id) {
+        return recipeStepsRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Step not found! Id: " + id));
     }
-
-    public Page<RecipeStep> findAll(Pageable pageable) {
-        Page<RecipeStep> stepsPages = repository.findAll(pageable);
-        return stepsPages;
-    }
-
-    public RecipeStep save(RecipeStep recipeSteps){
-        return repository.save(recipeSteps);
-    }
-
-    public RecipeStep update(RecipeStep recipeSteps){
-        return repository.save(recipeSteps);
+    @Transactional
+    public RecipeStep save(RecipeStep recipeStep){
+        return recipeStepsRepository.save(recipeStep);
     }
 
     public void delete(Long id){
-        repository.deleteById(id);
+        RecipeStep recipeStep = findById(id);
+        recipeStepsRepository.deleteById(id);
+    }
+
+    public void DeleteByRecipeId(Long recipeId){
+        recipeStepsRepository.deleteByRecipeId(recipeId);
     }
 }

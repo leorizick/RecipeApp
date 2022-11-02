@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/v1/auth/token").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/v1/account/create").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/account/save").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement(cust -> cust.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

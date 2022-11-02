@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,4 +16,5 @@ public class RecipeCreationRequest {
     private String description;
     private String ingredients;
     private Long categoryId;
+    private List<RecipeStepCreationRequest> steps;
 }

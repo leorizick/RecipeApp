@@ -1,57 +1,47 @@
 package com.leorizick.recipeapp.web.recipe;
 
 
+import com.leorizick.recipeapp.dto.recipe.RecipeStepCreationRequest;
+import com.leorizick.recipeapp.dto.recipe.RecipeStepCrudResponse;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
+import com.leorizick.recipeapp.services.api.service.recipe.RecipeStepApiService;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeStepCrud;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-
+@RestController
+@RequiredArgsConstructor
 public class RecipeStepController {
 
-    @Autowired
-    private RecipeStepCrud service;
+    private final RecipeStepApiService recipeStepApiService;
 
-    @GetMapping
-    public ResponseEntity<RecipeStep> find(@PathVariable Long id) {
-        RecipeStep step = service.find(id);
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(step);
-    }
-
-    @GetMapping
-    public ResponseEntity<Page<RecipeStep>> findAll(Pageable pageable) {
-        Page<RecipeStep> stepPages = service.findAll(pageable);
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(stepPages);
-
-    }
-
-    @PostMapping
-    public ResponseEntity<RecipeStep> save(@RequestBody RecipeStep recipeSteps) {
-        RecipeStep steps = service.save(recipeSteps);
+    @PostMapping(value = "api/recipe/{id}/step")
+    public ResponseEntity<RecipeStepCrudResponse> create(@PathVariable Long id, @RequestBody RecipeStepCreationRequest recipeStepCreationRequest) {
+        RecipeStepCrudResponse recipeStepCrudResponse = recipeStepApiService.create(id, recipeStepCreationRequest);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(steps);
+                .body(recipeStepCrudResponse);
     }
 
-    @PutMapping
-    public ResponseEntity<RecipeStep> update(@RequestBody RecipeStep recipeSteps) {
-        RecipeStep steps = service.save(recipeSteps);
+    @PutMapping(value = "api/recipe/{recipeId}/step/{stepId}")
+    public ResponseEntity<RecipeStepCrudResponse> update(@PathVariable Long recipeId, @RequestBody RecipeStepCreationRequest recipeStepCreationRequest, @PathVariable Long stepId) {
+        RecipeStepCrudResponse recipeStepCrudResponse = recipeStepApiService.update(recipeId, recipeStepCreationRequest, stepId);
         return ResponseEntity
-                .noContent()
+                .status(HttpStatus.OK)
                 .build();
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> delete(Long id) {
-        service.delete(id);
+    @DeleteMapping(value = "api/recipe/step/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        recipeStepApiService.delete(id);
         return ResponseEntity
                 .noContent()
                 .build();

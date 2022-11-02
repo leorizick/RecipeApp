@@ -2,6 +2,7 @@ package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
+import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCategoryCrud;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Configuration
 @RequiredArgsConstructor
@@ -30,11 +32,16 @@ public class RecipeMapper {
             if(recipe == null){
                 recipe = new Recipe();
             }
+
+            var steps = src.getSteps()
+                    .stream().map(step -> modelMapper.map(step, RecipeStep.class))
+                    .collect(Collectors.toList());
+
             recipe.setName(src.getName());
             recipe.setCategory(recipeCategoryCrud.findById(src.getCategoryId()));
             recipe.setDescription(src.getDescription());
             recipe.setIngredients(src.getIngredients());
-            recipe.setStep(new ArrayList<>());
+            recipe.setStep(steps);
             recipe.setEnabled(true);
             recipe.setAuthor(authenticationContext.getAccount());
             return recipe;
