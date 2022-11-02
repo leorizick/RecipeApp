@@ -1,0 +1,6 @@
+spring:
+  config:
+    import: file:src/main/resources/application.yml
+  profiles:
+    active: 'h2'
+
