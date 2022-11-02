@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 public class RecipeCreationFlowTest {
 
     private static final String BASIC_RECIPE_API = "api/recipe/create";
-
     private static final String RECIPE_API = "api/recipe/{id}";
     private static final String GET_ALL_RECIPE_API = "api/recipe";
 
