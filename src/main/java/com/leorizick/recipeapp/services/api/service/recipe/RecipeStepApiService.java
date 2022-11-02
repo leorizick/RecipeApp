@@ -26,8 +26,8 @@ public class RecipeStepApiService {
         return modelMapper.map(recipeStep, RecipeStepCrudResponse.class);
     }
 
-    public RecipeStepCrudResponse update(Long recipeid, RecipeStepCreationRequest recipeStepCreationRequest, Long stepId){
-        Recipe recipe = recipeCrud.findById(recipeid);
+    public RecipeStepCrudResponse update(Long recipeId, RecipeStepCreationRequest recipeStepCreationRequest, Long stepId){
+        Recipe recipe = recipeCrud.findById(recipeId);
         RecipeStep original = recipeStepCrud.findById(stepId);
         modelMapper.map(recipeStepCreationRequest, original);
         original.setRecipe(recipe);
