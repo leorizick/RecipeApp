@@ -1,7 +1,6 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeStepCreationRequest;
-import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCategoryCrud;
@@ -10,7 +9,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 
 @Configuration
 @RequiredArgsConstructor

@@ -4,7 +4,8 @@ import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeStepSummaryResponse;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
-import com.leorizick.recipeapp.entities.recipe.RecipeStep;
+import com.leorizick.recipeapp.repositories.RecipeLikeRepository;
+import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class RecipeResponseMapper {
     private final ModelMapper modelMapper;
+    private final RecipeLikeRepository recipeLikeRepository;
+    private final AuthenticationContext authenticationContext;
 
     @PostConstruct
     public void configure() {
@@ -31,6 +34,7 @@ public class RecipeResponseMapper {
 
                     var steps = src.getStep().stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).collect(Collectors.toList());
 
+                    var liker = authenticationContext.getAccountId();
 
                     return RecipeCrudResponse.builder()
                             .id(src.getId())
@@ -43,6 +47,8 @@ public class RecipeResponseMapper {
                             .step(steps)
                             .ingredients(src.getIngredients())
                             .category(src.getCategory().getName())
+                            .isLiked(recipeLikeRepository.isLiked(src.getId(), liker))
+                            .likesCount(recipeLikeRepository.likeCount(src.getId()))
                             .build();
                 });
     }

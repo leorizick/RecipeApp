@@ -26,5 +26,7 @@ public class RecipeCrudResponse {
     private List<RecipeStepSummaryResponse> step;
     private String category;
     private AccountSummaryResponse author;
+    private Long likesCount;
+    private boolean isLiked;
 
 }
