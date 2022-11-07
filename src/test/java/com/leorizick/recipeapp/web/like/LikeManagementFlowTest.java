@@ -11,7 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class LikeManagementeFlowTest {
+public class LikeManagementFlowTest {
 
     private static final String LIKE_RECIPE_API = "/api/recipe/{id}/like";
     private static final String DISLIKE_RECIPE_API = "/api/recipe/{id}/dislike";
