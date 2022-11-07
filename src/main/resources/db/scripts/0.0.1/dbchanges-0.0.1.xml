@@ -9,7 +9,9 @@
     <include relativeToChangelogFile="true" file="20221019-creating-table-profile.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-recipe-category.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-recipe.xml" />
+    <include relativeToChangelogFile="true" file="20221107-creating-table-comment.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-role.xml" />
+    <include relativeToChangelogFile="true" file="20221107-creating-table-comment.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-credential-profile.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-profile-role.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-recipe-step.xml" />

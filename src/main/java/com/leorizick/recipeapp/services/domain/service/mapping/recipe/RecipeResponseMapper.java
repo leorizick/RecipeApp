@@ -1,6 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
+import com.leorizick.recipeapp.dto.recipe.CommentSummaryResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeStepSummaryResponse;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
@@ -32,6 +33,7 @@ public class RecipeResponseMapper {
                     var src = mappingContext.getSource();
                     var author = modelMapper.map(src.getAuthor(), AccountSummaryResponse.class);
 
+                    var comments = src.getComment().stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class)).toList();
                     var steps = src.getStep().stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).collect(Collectors.toList());
 
                     var liker = authenticationContext.getAccountId();
@@ -46,6 +48,7 @@ public class RecipeResponseMapper {
                             .enabled(src.isEnabled())
                             .step(steps)
                             .ingredients(src.getIngredients())
+                            .comment(comments)
                             .category(src.getCategory().getName())
                             .isLiked(recipeLikeRepository.isLiked(src.getId(), liker))
                             .likesCount(recipeLikeRepository.likeCount(src.getId()))

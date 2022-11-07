@@ -8,26 +8,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RecipeCrudResponse {
+public class CommentCrudResponse {
 
     private Long id;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private String name;
-    private String description;
-    private String ingredients;
-    private boolean enabled;
-    private List<RecipeStepSummaryResponse> step;
-    private List<CommentSummaryResponse> comment;
-    private String category;
     private AccountSummaryResponse author;
-    private Long likesCount;
-    private boolean isLiked;
+    private Long recipe;
+    private String body;
+    private boolean enabled;
 
 }
