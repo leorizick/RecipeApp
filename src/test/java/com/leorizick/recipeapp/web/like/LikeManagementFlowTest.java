@@ -19,7 +19,7 @@ public class LikeManagementFlowTest {
     @Test
     public void shouldLikeARecipeAndDislikeAfter(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var response = RestAssured.given()
                 .contentType(ContentType.JSON)

@@ -34,8 +34,8 @@ public class RecipeCreationFlowTest {
     private static final String ANY_RECIPE_STEPS ="Misture a farinha com os ovos";
 
     @Test
-    public void shouldCreateAnRecipe(){
-        var response = RecipeHelper.createAnRecipe();
+    public void shouldCreateARecipe(){
+        var response = RecipeHelper.createARecipe();
 
         Assertions.assertNotNull(response.getId());
         Assertions.assertEquals(ANY_RECIPE_NAME, response.getName());
@@ -87,7 +87,7 @@ public class RecipeCreationFlowTest {
     }
 
     @Test
-    public void shouldReturnErrorTryingToEditAnRecipeWithAnotherAuthorAccount(){
+    public void shouldReturnErrorTryingToEditARecipeWithAnotherAuthorAccount(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
         var request = RecipeCreationRequest.builder()
@@ -124,8 +124,8 @@ public class RecipeCreationFlowTest {
     }
 
     @Test
-    public void shouldFindAnRecipeById(){
-        var recipe = RecipeHelper.createAnRecipe();
+    public void shouldFindARecipeById(){
+        var recipe = RecipeHelper.createARecipe();
         var findRecipe = RecipeHelper.findRecipe(recipe);
 
         Assertions.assertEquals(recipe.getId(), findRecipe.getId());
@@ -135,7 +135,7 @@ public class RecipeCreationFlowTest {
     public void shouldFindAllRecipes() {
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var findRecipe = RestAssured.given()
                 .contentType(ContentType.JSON)
@@ -151,10 +151,10 @@ public class RecipeCreationFlowTest {
     }
 
     @Test
-    public void shouldDeleteAnRecipeById(){
+    public void shouldDeleteARecipeById(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var response = RestAssured.given()
                 .contentType(ContentType.JSON)

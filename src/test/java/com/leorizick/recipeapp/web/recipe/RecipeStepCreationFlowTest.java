@@ -29,7 +29,7 @@ public class RecipeStepCreationFlowTest {
     public void shouldCreateARecipeStep(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var request = RecipeStepCreationRequest.builder()
                 .step(ANY_STEP)
@@ -56,7 +56,7 @@ public class RecipeStepCreationFlowTest {
     public void shouldUpdateARecipeStep(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var request = RecipeStepCreationRequest.builder()
                 .step(ANY_STEP)
@@ -102,7 +102,7 @@ public class RecipeStepCreationFlowTest {
     public void shouldReturnErrorWhenTryToUpdateAnRecipeStepWithNotAuthorAccountToken(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var request = RecipeStepCreationRequest.builder()
                 .step(ANY_STEP)
@@ -145,7 +145,7 @@ public class RecipeStepCreationFlowTest {
     public void shouldDeleteARecipeStepById(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var request = RecipeStepCreationRequest.builder()
                 .step(ANY_STEP)
@@ -176,7 +176,7 @@ public class RecipeStepCreationFlowTest {
     public void shouldReturnErrorWhenTryToDeleteARecipeStepWithNotAuthorToken(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
-        var recipe = RecipeHelper.createAnRecipe();
+        var recipe = RecipeHelper.createARecipe();
 
         var request = RecipeStepCreationRequest.builder()
                 .step(ANY_STEP)
