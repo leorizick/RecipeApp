@@ -1,6 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.recipe;
 
 import com.leorizick.recipeapp.entities.recipe.Recipe;
+import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.repositories.RecipeRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
@@ -31,19 +32,24 @@ public class RecipeCrud {
 
     @Transactional
     public Recipe save(Recipe recipe) {
-        var authAccountId = authenticationContext.getAccountId();
-        if (recipe.getId() != null && !authAccountId.equals(recipe.getAuthor().getId())){
-            throw new AccountTypeNotAllowed("author");
-        }
+       verifyAuthorIdAndAuthAccountId(recipe);
         return recipeRepository.save(recipe);
     }
 
     @Transactional
     public void deleteById(Long id) {
         Recipe recipe = findById(id);
+        verifyAuthorIdAndAuthAccountId(recipe);
         recipe.setEnabled(false);
         recipeRepository.save(recipe);
 
+    }
+
+    private void verifyAuthorIdAndAuthAccountId(Recipe recipe) {
+        var authAccountId = authenticationContext.getAccountId();
+        if (recipe.getId() != null && !authAccountId.equals(recipe.getAuthor().getId())) {
+            throw new AccountTypeNotAllowed("author");
+        }
     }
 
 }

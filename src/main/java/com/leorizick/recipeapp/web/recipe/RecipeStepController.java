@@ -3,11 +3,8 @@ package com.leorizick.recipeapp.web.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeStepCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeStepCrudResponse;
-import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.services.api.service.recipe.RecipeStepApiService;
-import com.leorizick.recipeapp.services.domain.service.recipe.RecipeStepCrud;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

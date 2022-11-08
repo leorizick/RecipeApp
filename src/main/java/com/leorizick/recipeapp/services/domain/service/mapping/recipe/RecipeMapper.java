@@ -43,6 +43,7 @@ public class RecipeMapper {
             recipe.setDescription(src.getDescription());
             recipe.setIngredients(src.getIngredients());
             recipe.setStep(steps);
+            recipe.setComment(new ArrayList<>());
             recipe.setEnabled(true);
 
             return recipe;

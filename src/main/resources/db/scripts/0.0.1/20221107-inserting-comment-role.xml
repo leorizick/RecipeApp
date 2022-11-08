@@ -1,0 +1,104 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221107-inserting-comment-role" author="leorizick">
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="GET_COMMENT"/>
+            <column name="description" value="can get an comment"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'GET_COMMENT')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'GET_COMMENT')"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="CREATE_COMMENT"/>
+            <column name="description" value="can create an comment"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'CREATE_COMMENT')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'CREATE_COMMENT')"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="UPDATE_COMMENT"/>
+            <column name="description" value="can update an comment"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'UPDATE_COMMENT')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'UPDATE_COMMENT')"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="DELETE_COMMENT"/>
+            <column name="description" value="can delete an comment"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'DELETE_COMMENT')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'DELETE_COMMENT')"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="GET_ALL_COMMENTS"/>
+            <column name="description" value="Get a page of comments"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'GET_ALL_COMMENTS')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'GET_ALL_COMMENTS')"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

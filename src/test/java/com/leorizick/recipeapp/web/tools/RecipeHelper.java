@@ -25,7 +25,7 @@ public class RecipeHelper {
 
 
 
-    public static RecipeCrudResponse createAnRecipe(){
+    public static RecipeCrudResponse createARecipe(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
         ANY_RECIPE_STEPS.add(new RecipeStepCreationRequest(null, "Misture a farinha com os ovos"));
