@@ -16,6 +16,5 @@ public class LikeApiService {
 
     public void dislikeRecipe(Long id) {
         likeManagement.dislikeRecipe(id);
-
     }
 }
