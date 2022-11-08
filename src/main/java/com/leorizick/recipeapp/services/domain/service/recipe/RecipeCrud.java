@@ -1,13 +1,11 @@
 package com.leorizick.recipeapp.services.domain.service.recipe;
 
 import com.leorizick.recipeapp.entities.recipe.Recipe;
-import com.leorizick.recipeapp.entities.recipe.RecipeStep;
-import com.leorizick.recipeapp.repositories.RecipeRepository;
+import com.leorizick.recipeapp.repositories.recipe.RecipeRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

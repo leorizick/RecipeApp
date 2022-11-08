@@ -1,7 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.account;
 
 import com.leorizick.recipeapp.entities.account.Credential;
-import com.leorizick.recipeapp.repositories.CredentialRepository;
+import com.leorizick.recipeapp.repositories.account.CredentialRepository;
 import com.leorizick.recipeapp.services.exceptions.AlreadyDeletedException;
 import com.leorizick.recipeapp.services.exceptions.EmailAlreadyInUseException;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;

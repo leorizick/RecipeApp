@@ -42,7 +42,7 @@ public class Recipe {
     private List<Ingredient> ingredients;
 
     @OneToMany(mappedBy = "recipe")
-    private List<RecipeStep> step = new ArrayList<>();
+    private List<RecipeStep> step;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "category_id")

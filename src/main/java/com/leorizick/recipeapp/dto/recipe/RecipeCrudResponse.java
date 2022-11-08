@@ -21,7 +21,7 @@ public class RecipeCrudResponse {
     private LocalDateTime updatedAt;
     private String name;
     private String description;
-    private List<String> ingredients;
+    private List<IngredientSummaryResponse> ingredients;
     private boolean enabled;
     private List<RecipeStepSummaryResponse> step;
     private List<CommentSummaryResponse> comment;

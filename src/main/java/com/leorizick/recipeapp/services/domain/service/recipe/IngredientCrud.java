@@ -1,7 +1,8 @@
 package com.leorizick.recipeapp.services.domain.service.recipe;
 
+import com.leorizick.recipeapp.entities.recipe.Ingredient;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
-import com.leorizick.recipeapp.repositories.recipe.RecipeStepsRepository;
+import com.leorizick.recipeapp.repositories.recipe.IngredientRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
@@ -12,34 +13,34 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class RecipeStepCrud {
+public class IngredientCrud {
 
-    private final RecipeStepsRepository recipeStepsRepository;
+    private final IngredientRepository ingredientRepository;
     private final AuthenticationContext authenticationContext;
 
-    public RecipeStep findById(Long id) {
-        return recipeStepsRepository.findById(id)
+    public Ingredient findById(Long id) {
+        return ingredientRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Step not found! Id: " + id));
     }
     @Transactional
-    public RecipeStep save(RecipeStep recipeStep){
-        verifyAuthorIdAndAuthAccountId(recipeStep);
-        return recipeStepsRepository.save(recipeStep);
+    public Ingredient save(Ingredient ingredient){
+        verifyAuthorIdAndAuthAccountId(ingredient);
+        return ingredientRepository.save(ingredient);
     }
 
     public void delete(Long id){
-        RecipeStep recipeStep = findById(id);
-        verifyAuthorIdAndAuthAccountId(recipeStep);
-        recipeStepsRepository.deleteById(id);
+        Ingredient ingredient = findById(id);
+        verifyAuthorIdAndAuthAccountId(ingredient);
+        ingredientRepository.deleteById(id);
     }
 
     @Transactional
     public void DeleteByRecipeId(Long recipeId){
-        recipeStepsRepository.deleteByRecipeId(recipeId);
+        ingredientRepository.deleteByRecipeId(recipeId);
     }
 
-    private void verifyAuthorIdAndAuthAccountId(RecipeStep recipeStep){
-        if(!authenticationContext.getAccountId().equals(recipeStep.getRecipe().getAuthor().getId())){
+    private void verifyAuthorIdAndAuthAccountId(Ingredient ingredient){
+        if(!authenticationContext.getAccountId().equals(ingredient.getRecipe().getAuthor().getId())){
             throw new AccountTypeNotAllowed("author");
         }
     }

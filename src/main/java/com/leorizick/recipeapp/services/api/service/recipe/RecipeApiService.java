@@ -2,8 +2,10 @@ package com.leorizick.recipeapp.services.api.service.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
+import com.leorizick.recipeapp.entities.recipe.Ingredient;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
+import com.leorizick.recipeapp.services.domain.service.recipe.IngredientCrud;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeStepCrud;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ public class RecipeApiService {
     private final RecipeCrud recipeCrud;
     private final ModelMapper modelMapper;
     private final RecipeStepCrud recipeStepCrud;
+    private final IngredientCrud ingredientCrud;
 
     public RecipeCrudResponse findById(Long id) {
         Recipe recipe = recipeCrud.findById(id);
@@ -40,6 +43,10 @@ public class RecipeApiService {
             step.setRecipe(recipe);
             recipeStepCrud.save(step);
         }
+        for (Ingredient ing: recipe.getIngredients()) {
+            ing.setRecipe(recipe);
+            ingredientCrud.save(ing);
+        }
         return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
@@ -52,6 +59,11 @@ public class RecipeApiService {
         for (RecipeStep step: recipe.getStep()) {
             step.setRecipe(recipe);
             recipeStepCrud.save(step);
+        }
+        ingredientCrud.DeleteByRecipeId(id);
+        for (Ingredient ing: recipe.getIngredients()) {
+            ing.setRecipe(recipe);
+            ingredientCrud.save(ing);
         }
 
         recipe = recipeCrud.save(recipe);

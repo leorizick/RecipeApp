@@ -2,10 +2,11 @@ package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
 import com.leorizick.recipeapp.dto.recipe.CommentSummaryResponse;
+import com.leorizick.recipeapp.dto.recipe.IngredientSummaryResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeStepSummaryResponse;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
-import com.leorizick.recipeapp.repositories.RecipeLikeRepository;
+import com.leorizick.recipeapp.repositories.like.RecipeLikeRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -13,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.stream.Collectors;
 
 @Configuration
 @RequiredArgsConstructor
@@ -39,6 +39,9 @@ public class RecipeResponseMapper {
                     var steps = src.getStep()
                             .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).toList();
 
+                    var ingredients = src.getIngredients().stream()
+                            .map(ing -> new IngredientSummaryResponse(ing.getId(), ing.getIngredient())).toList();
+
                     var liker = authenticationContext.getAccountId();
 
                     return RecipeCrudResponse.builder()
@@ -50,7 +53,7 @@ public class RecipeResponseMapper {
                             .description(src.getDescription())
                             .enabled(src.isEnabled())
                             .step(steps)
-                            .ingredients(src.getIngredients())
+                            .ingredients(ingredients)
                             .comment(comments)
                             .category(src.getCategory().getName())
                             .isLiked(recipeLikeRepository.isLiked(src.getId(), liker))

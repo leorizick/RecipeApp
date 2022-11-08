@@ -36,10 +36,6 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="ingredients" type="varchar(250)">
-                <constraints nullable="false" />
-            </column>
-
             <column name="enabled" type="BOOLEAN">
                 <constraints nullable="false" />
             </column>

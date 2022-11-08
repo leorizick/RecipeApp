@@ -1,6 +1,6 @@
 package com.leorizick.recipeapp.services.domain.service.account;
 
-import com.leorizick.recipeapp.repositories.RoleRepository;
+import com.leorizick.recipeapp.repositories.account.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
