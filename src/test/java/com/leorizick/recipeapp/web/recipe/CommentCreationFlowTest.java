@@ -23,7 +23,7 @@ public class CommentCreationFlowTest {
 
     private static final String CREATE_COMMENT_API = "/api/recipe/{id}/comment";
     private static final String BASIC_COMMENT_API = "/api/recipe/comment/{id}";
-    private static final String GET_ALL_COMMENTS_API = "/api/recipe/comment";
+    private static final String GET_ALL_COMMENTS_API = "/api/recipe/{id}/comment";
 
     private static final String ANY_COMMENT_BODY = "Huuum que receita deliciosa!";
     private static final String ANOTHER_COMMENT_BODY = "Comentario atualizado!";
@@ -191,6 +191,7 @@ public class CommentCreationFlowTest {
         var findComment = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .header(HttpHeaders.AUTHORIZATION, preRegisteredAdminToken)
+                .pathParam("id", recipe.getId())
                 .get(GET_ALL_COMMENTS_API);
 
         var responseBody = (Page<CommentCrudResponse>) findComment.as(new TypeReference<RestPageImpl<CommentCrudResponse>>() {

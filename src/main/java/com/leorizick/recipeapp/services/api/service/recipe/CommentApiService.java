@@ -2,7 +2,6 @@ package com.leorizick.recipeapp.services.api.service.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.CommentCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.CommentCrudResponse;
-import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.entities.recipe.Comment;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.services.domain.service.recipe.CommentCrud;
@@ -26,11 +25,6 @@ public class CommentApiService {
     public CommentCrudResponse findById(Long id) {
         Comment comment = commentCrud.findById(id);
         return modelMapper.map(comment, CommentCrudResponse.class);
-    }
-
-    public Page<CommentCrudResponse> findAll(Pageable pageable) {
-        Page<Comment> commentPage = commentCrud.findAll(pageable);
-        return commentPage.map(comment -> modelMapper.map(comment, CommentCrudResponse.class));
     }
 
     public Page<CommentCrudResponse> findAllPerRecipe(Pageable pageable, Long id) {

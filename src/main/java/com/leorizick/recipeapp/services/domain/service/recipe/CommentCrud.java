@@ -34,10 +34,6 @@ public class CommentCrud {
         commentRepository.save(comment);
     }
 
-    public Page<Comment> findAll(Pageable pageable) {
-        return commentRepository.findAll(pageable);
-    }
-
     public Page<Comment> findAllPerRecipe(Pageable pageable, Long id){
         return commentRepository.findAllByRecipe(id, pageable);
     }

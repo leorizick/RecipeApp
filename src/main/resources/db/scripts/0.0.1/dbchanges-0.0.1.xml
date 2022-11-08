@@ -21,5 +21,6 @@
     <include relativeToChangelogFile="true" file="20221031-inserting-categories-recipe.xml" />
     <include relativeToChangelogFile="true" file="20221031-inserting-recipe-role.xml" />
     <include relativeToChangelogFile="true" file="20221031-inserting-recipe-step-role.xml" />
+    <include relativeToChangelogFile="true" file="20221107-inserting-comment-role.xml" />
 
 </databaseChangeLog>

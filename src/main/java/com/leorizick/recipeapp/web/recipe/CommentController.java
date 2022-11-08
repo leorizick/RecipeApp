@@ -26,6 +26,7 @@ public class CommentController {
 
     private final CommentApiService commentApiService;
 
+    @PreAuthorize("hasAuthority('GET_COMMENT')")
     @GetMapping(value = "/api/recipe/comment/{id}")
     public ResponseEntity<CommentCrudResponse> findById(@PathVariable Long id){
         CommentCrudResponse commentCrudResponse = commentApiService.findById(id);
@@ -34,14 +35,7 @@ public class CommentController {
                 .body(commentCrudResponse);
     }
 
-    @GetMapping(value = "/api/recipe/comment")
-    public ResponseEntity<Page<CommentCrudResponse>> findAll(Pageable pageable) {
-        Page<CommentCrudResponse> commentPages = commentApiService.findAll(pageable);
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(commentPages);
-    }
-
+    @PreAuthorize("hasAuthority('GET_ALL_COMMENTS')")
     @GetMapping(value = "/api/recipe/{id}/comment")
     public ResponseEntity<Page<CommentCrudResponse>> findAll(Pageable pageable, @PathVariable Long id) {
         Page<CommentCrudResponse> commentPages = commentApiService.findAllPerRecipe(pageable, id);
@@ -50,6 +44,7 @@ public class CommentController {
                 .body(commentPages);
     }
 
+    @PreAuthorize("hasAuthority('CREATE_COMMENT')")
     @PostMapping(value = "/api/recipe/{id}/comment")
     public ResponseEntity<CommentCrudResponse> create(@RequestBody CommentCreationRequest commentCreationRequest, @PathVariable Long id){
         CommentCrudResponse commentCrudResponse = commentApiService.create(commentCreationRequest, id);
@@ -58,6 +53,7 @@ public class CommentController {
                 .body(commentCrudResponse);
     }
 
+    @PreAuthorize("hasAuthority('UPDATE_COMMENT')")
     @PutMapping(value = "/api/recipe/comment/{id}")
     public ResponseEntity<CommentCrudResponse> update(@RequestBody CommentCreationRequest commentCreationRequest, @PathVariable Long id){
         CommentCrudResponse commentCrudResponse = commentApiService.update(commentCreationRequest, id);
@@ -66,6 +62,7 @@ public class CommentController {
                 .build();
     }
 
+    @PreAuthorize("hasAuthority('DELETE_COMMENT')")
     @DeleteMapping(value = "/api/recipe/comment/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         commentApiService.delete(id);
