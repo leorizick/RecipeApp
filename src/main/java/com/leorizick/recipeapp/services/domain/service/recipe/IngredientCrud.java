@@ -36,6 +36,7 @@ public class IngredientCrud {
 
     @Transactional
     public void DeleteByRecipeId(Long recipeId){
+        
         ingredientRepository.deleteByRecipeId(recipeId);
     }
 
