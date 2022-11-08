@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.stream.Collectors;
 
 @Configuration
 @RequiredArgsConstructor
@@ -34,7 +35,8 @@ public class RecipeResponseMapper {
                     var author = modelMapper.map(src.getAuthor(), AccountSummaryResponse.class);
 
                     var comments = src.getComment()
-                            .stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class)).toList();
+                            .stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class))
+                            .collect(Collectors.toList());
 
                     var steps = src.getStep()
                             .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).toList();
