@@ -1,6 +1,6 @@
 package com.leorizick.recipeapp.dto.recipe;
 
-
+import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RecipeStepSummaryResponse {
+public class CommentSummaryResponse {
 
     private Long id;
-    private String step;
+    private AccountSummaryResponse author;
+    private String body;
 
 }
