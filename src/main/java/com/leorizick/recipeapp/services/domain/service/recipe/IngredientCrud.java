@@ -1,7 +1,6 @@
 package com.leorizick.recipeapp.services.domain.service.recipe;
 
 import com.leorizick.recipeapp.entities.recipe.Ingredient;
-import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.repositories.recipe.IngredientRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
@@ -28,6 +27,7 @@ public class IngredientCrud {
         return ingredientRepository.save(ingredient);
     }
 
+    @Transactional
     public void delete(Long id){
         Ingredient ingredient = findById(id);
         verifyAuthorIdAndAuthAccountId(ingredient);
@@ -44,4 +44,5 @@ public class IngredientCrud {
             throw new AccountTypeNotAllowed("author");
         }
     }
+
 }

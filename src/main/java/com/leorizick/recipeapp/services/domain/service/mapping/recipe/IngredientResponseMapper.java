@@ -1,10 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.IngredientCrudResponse;
-import com.leorizick.recipeapp.dto.recipe.RecipeStepCrudResponse;
 import com.leorizick.recipeapp.entities.recipe.Ingredient;
-import com.leorizick.recipeapp.entities.recipe.RecipeStep;
-import com.leorizick.recipeapp.services.domain.service.recipe.IngredientCrud;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Configuration;
@@ -19,10 +16,10 @@ public class IngredientResponseMapper {
 
     @PostConstruct
     public void configure() {
-        createFromRecipeStep();
+        createFromIngredient();
     }
 
-    private void createFromRecipeStep() {
+    private void createFromIngredient() {
         modelMapper.createTypeMap(Ingredient.class, IngredientCrudResponse.class)
                 .setConverter(mappingContext -> {
                     var src = mappingContext.getSource();
