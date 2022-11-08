@@ -37,7 +37,9 @@ public class Recipe {
     private String name;
     private String description;
     private boolean enabled;
-    private String ingredients;
+
+    @OneToMany(mappedBy = "recipe")
+    private List<Ingredient> ingredients;
 
     @OneToMany(mappedBy = "recipe")
     private List<RecipeStep> step = new ArrayList<>();

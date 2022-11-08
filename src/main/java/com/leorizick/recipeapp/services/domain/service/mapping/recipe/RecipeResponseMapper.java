@@ -33,8 +33,11 @@ public class RecipeResponseMapper {
                     var src = mappingContext.getSource();
                     var author = modelMapper.map(src.getAuthor(), AccountSummaryResponse.class);
 
-                    var comments = src.getComment().stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class)).toList();
-                    var steps = src.getStep().stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).collect(Collectors.toList());
+                    var comments = src.getComment()
+                            .stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class)).toList();
+
+                    var steps = src.getStep()
+                            .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).toList();
 
                     var liker = authenticationContext.getAccountId();
 
