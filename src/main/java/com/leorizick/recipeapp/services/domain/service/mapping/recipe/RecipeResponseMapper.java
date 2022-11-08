@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.stream.Collectors;
 
 @Configuration
 @RequiredArgsConstructor
@@ -34,13 +35,16 @@ public class RecipeResponseMapper {
                     var author = modelMapper.map(src.getAuthor(), AccountSummaryResponse.class);
 
                     var comments = src.getComment()
-                            .stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class)).toList();
+                            .stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class))
+                            .collect(Collectors.toList());
 
                     var steps = src.getStep()
-                            .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).toList();
+                            .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep()))
+                            .collect(Collectors.toList());
 
                     var ingredients = src.getIngredients().stream()
-                            .map(ing -> new IngredientSummaryResponse(ing.getId(), ing.getIngredient())).toList();
+                            .map(ing -> new IngredientSummaryResponse(ing.getId(), ing.getIngredient()))
+                            .collect(Collectors.toList());
 
                     var liker = authenticationContext.getAccountId();
 
