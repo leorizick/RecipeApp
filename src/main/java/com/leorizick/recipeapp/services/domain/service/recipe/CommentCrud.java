@@ -1,8 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.recipe;
 
 import com.leorizick.recipeapp.entities.recipe.Comment;
-import com.leorizick.recipeapp.entities.recipe.Recipe;
-import com.leorizick.recipeapp.repositories.CommentRepository;
+import com.leorizick.recipeapp.repositories.comment.CommentRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;

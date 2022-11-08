@@ -1,4 +1,4 @@
-package com.leorizick.recipeapp.repositories;
+package com.leorizick.recipeapp.repositories.account;
 
 import com.leorizick.recipeapp.entities.account.Account;
 import org.springframework.data.jpa.repository.JpaRepository;

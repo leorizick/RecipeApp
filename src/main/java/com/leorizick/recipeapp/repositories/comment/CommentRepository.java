@@ -1,4 +1,4 @@
-package com.leorizick.recipeapp.repositories;
+package com.leorizick.recipeapp.repositories.comment;
 
 import com.leorizick.recipeapp.entities.recipe.Comment;
 import com.leorizick.recipeapp.entities.recipe.Recipe;

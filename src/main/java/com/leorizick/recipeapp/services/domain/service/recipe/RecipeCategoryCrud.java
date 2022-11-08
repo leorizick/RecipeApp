@@ -1,7 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.recipe;
 
 import com.leorizick.recipeapp.entities.RecipeCategory;
-import com.leorizick.recipeapp.repositories.RecipeCategoryRepository;
+import com.leorizick.recipeapp.repositories.recipe.RecipeCategoryRepository;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

@@ -2,7 +2,7 @@ package com.leorizick.recipeapp.services.domain.service.config.auth;
 
 import com.leorizick.recipeapp.dto.auth.AccountContextDetails;
 import com.leorizick.recipeapp.entities.account.Profile;
-import com.leorizick.recipeapp.repositories.CredentialRepository;
+import com.leorizick.recipeapp.repositories.account.CredentialRepository;
 import com.leorizick.recipeapp.services.domain.service.account.RoleFinderByProfile;
 import com.leorizick.recipeapp.services.domain.service.properties.JwtProperties;
 import lombok.RequiredArgsConstructor;

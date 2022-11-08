@@ -1,5 +1,6 @@
 package com.leorizick.recipeapp.web.recipe;
 
+import com.leorizick.recipeapp.dto.recipe.IngredientCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.web.tools.AccountHelper;
@@ -16,7 +17,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.testcontainers.shaded.com.fasterxml.jackson.core.type.TypeReference;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -29,7 +32,7 @@ public class RecipeCreationFlowTest {
     private static final String ANY_RECIPE_NAME = "Boulu de murangu";
     private static final String ANY_RECIPE_NAME_UPDATED = "\"Receita atualizada\"";
     private static final String ANY_RECIPE_DESCRIPTION = "Como fazer bolo de morango";
-    private static final String ANY_RECIPE_INGREDIENTS = "Morango, 300g farinha, 3 ovos";
+    private static final List<IngredientCreationRequest> ANY_RECIPE_INGREDIENTS = new ArrayList<>();
     private static final String ANY_RECIPE_CATEGORY = "Aves";
     private static final String ANY_RECIPE_STEPS ="Misture a farinha com os ovos";
 
@@ -40,7 +43,7 @@ public class RecipeCreationFlowTest {
         Assertions.assertNotNull(response.getId());
         Assertions.assertEquals(ANY_RECIPE_NAME, response.getName());
         Assertions.assertEquals(ANY_RECIPE_DESCRIPTION, response.getDescription());
-        Assertions.assertEquals(ANY_RECIPE_INGREDIENTS, response.getIngredients());
+        Assertions.assertTrue(response.getStep().get(0).getStep().equals(ANY_RECIPE_STEPS));
         Assertions.assertEquals(ANY_RECIPE_CATEGORY, response.getCategory());
         Assertions.assertTrue(response.getStep().get(0).getStep().equals(ANY_RECIPE_STEPS));
         Assertions.assertTrue(response.isEnabled());
