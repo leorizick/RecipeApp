@@ -15,12 +15,14 @@
     <include relativeToChangelogFile="true" file="20221019-creating-table-credential-profile.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-profile-role.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-recipe-step.xml" />
+    <include relativeToChangelogFile="true" file="20221108-creating-table-recipe-ingredient.xml" />
     <include relativeToChangelogFile="true" file="20221022-inserting-profile-and-role.xml" />
     <include relativeToChangelogFile="true" file="20221022-inserting-user-admin.xml" />
     <include relativeToChangelogFile="true" file="20221031-creating-table-recipe-like.xml" />
     <include relativeToChangelogFile="true" file="20221031-inserting-categories-recipe.xml" />
     <include relativeToChangelogFile="true" file="20221031-inserting-recipe-role.xml" />
     <include relativeToChangelogFile="true" file="20221031-inserting-recipe-step-role.xml" />
+    <include relativeToChangelogFile="true" file="20221108-inserting-ingredient-role.xml" />
     <include relativeToChangelogFile="true" file="20221107-inserting-comment-role.xml" />
     <include relativeToChangelogFile="true" file="20221107-inserting-like-role.xml" />
 

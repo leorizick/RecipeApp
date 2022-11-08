@@ -1,7 +1,6 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
-import com.leorizick.recipeapp.dto.recipe.RecipeStepCreationRequest;
-import com.leorizick.recipeapp.entities.recipe.RecipeStep;
+import com.leorizick.recipeapp.entities.recipe.Ingredient;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCategoryCrud;
 import lombok.RequiredArgsConstructor;
@@ -12,23 +11,25 @@ import javax.annotation.PostConstruct;
 
 @Configuration
 @RequiredArgsConstructor
-public class RecipeStepMapper {
+public class IngredientsMapper {
     private final ModelMapper modelMapper;
+    private final RecipeCategoryCrud recipeCategoryCrud;
+    private final AuthenticationContext authenticationContext;
 
     @PostConstruct
     public void configure() {
-        createFromRecipeStepCreationRequest();
+        createIngredientsFromRecipeCreationRequest();
     }
 
-    private void createFromRecipeStepCreationRequest() {
-        modelMapper.createTypeMap(RecipeStepCreationRequest.class, RecipeStep.class).setConverter(context -> {
+    private void createIngredientsFromRecipeCreationRequest() {
+        modelMapper.createTypeMap(String.class, Ingredient.class).setConverter(context -> {
             var src = context.getSource();
-            var recipeStep = context.getDestination();
-            if(recipeStep == null){
-                recipeStep = new RecipeStep();
+            var ingredients = context.getDestination();
+            if(ingredients == null){
+                ingredients = new Ingredient();
             }
-            recipeStep.setStep(src.getStep());
-            return recipeStep;
+            ingredients.setIngredient(src);
+            return ingredients;
         });
     }
 }

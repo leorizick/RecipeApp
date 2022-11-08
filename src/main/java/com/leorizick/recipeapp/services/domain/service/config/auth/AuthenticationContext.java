@@ -2,7 +2,7 @@ package com.leorizick.recipeapp.services.domain.service.config.auth;
 
 import com.leorizick.recipeapp.dto.auth.AccountContextDetails;
 import com.leorizick.recipeapp.entities.account.Account;
-import com.leorizick.recipeapp.repositories.AccountRepository;
+import com.leorizick.recipeapp.repositories.account.AccountRepository;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;

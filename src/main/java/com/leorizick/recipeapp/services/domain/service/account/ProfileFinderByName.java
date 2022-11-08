@@ -2,7 +2,7 @@ package com.leorizick.recipeapp.services.domain.service.account;
 
 
 import com.leorizick.recipeapp.entities.account.Profile;
-import com.leorizick.recipeapp.repositories.ProfileRepository;
+import com.leorizick.recipeapp.repositories.account.ProfileRepository;
 import com.leorizick.recipeapp.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;

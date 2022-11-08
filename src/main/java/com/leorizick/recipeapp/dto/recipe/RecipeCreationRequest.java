@@ -14,7 +14,7 @@ import java.util.List;
 public class RecipeCreationRequest {
     private String name;
     private String description;
-    private String ingredients;
+    private List<IngredientCreationRequest> ingredients;
     private Long categoryId;
     private List<RecipeStepCreationRequest> steps;
 }

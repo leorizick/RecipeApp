@@ -3,7 +3,7 @@ package com.leorizick.recipeapp.services.domain.service.like;
 import com.leorizick.recipeapp.entities.account.Account;
 import com.leorizick.recipeapp.entities.like.RecipeLike;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
-import com.leorizick.recipeapp.repositories.RecipeLikeRepository;
+import com.leorizick.recipeapp.repositories.like.RecipeLikeRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
 import lombok.RequiredArgsConstructor;

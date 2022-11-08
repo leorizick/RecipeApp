@@ -1,6 +1,7 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
+import com.leorizick.recipeapp.entities.recipe.Ingredient;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
@@ -29,19 +30,21 @@ public class RecipeMapper {
         modelMapper.createTypeMap(RecipeCreationRequest.class, Recipe.class).setConverter(context -> {
             var src = context.getSource();
             var recipe = context.getDestination();
-            if(recipe == null){
+            if (recipe == null) {
                 recipe = new Recipe();
                 recipe.setAuthor(authenticationContext.getAccount());
             }
 
+            var ingredients = src.getIngredients()
+                    .stream().map(ingredient -> modelMapper.map(ingredient, Ingredient.class)).collect(Collectors.toList());
+
             var steps = src.getSteps()
-                    .stream().map(step -> modelMapper.map(step, RecipeStep.class))
-                    .collect(Collectors.toList());
+                    .stream().map(step -> modelMapper.map(step, RecipeStep.class)).collect(Collectors.toList());
 
             recipe.setName(src.getName());
             recipe.setCategory(recipeCategoryCrud.findById(src.getCategoryId()));
             recipe.setDescription(src.getDescription());
-            recipe.setIngredients(src.getIngredients());
+            recipe.setIngredients(ingredients);
             recipe.setStep(steps);
             recipe.setComment(new ArrayList<>());
             recipe.setEnabled(true);
