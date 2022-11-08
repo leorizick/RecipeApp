@@ -1,5 +1,6 @@
 package com.leorizick.recipeapp.web.tools;
 
+import com.leorizick.recipeapp.dto.recipe.IngredientCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeStepCreationRequest;
@@ -19,9 +20,9 @@ public class RecipeHelper {
 
     private static final String ANY_RECIPE_NAME = "Boulu de murangu";
     private static final String ANY_RECIPE_DESCRIPTION = "Como fazer bolo de morango";
-    private static final String ANY_RECIPE_INGREDIENTS = "Morango, 300g farinha, 3 ovos";
     private static final Long ANY_RECIPE_CATEGORY = 1L;
     private static final List<RecipeStepCreationRequest> ANY_RECIPE_STEPS = new ArrayList<>();
+    private static final List<IngredientCreationRequest> ANY_RECIPE_INGREDIENTS = new ArrayList<>();
 
 
 

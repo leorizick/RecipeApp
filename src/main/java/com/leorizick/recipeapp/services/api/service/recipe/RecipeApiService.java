@@ -21,8 +21,6 @@ import javax.transaction.Transactional;
 public class RecipeApiService {
     private final RecipeCrud recipeCrud;
     private final ModelMapper modelMapper;
-    private final RecipeStepCrud recipeStepCrud;
-    private final IngredientCrud ingredientCrud;
 
     public RecipeCrudResponse findById(Long id) {
         Recipe recipe = recipeCrud.findById(id);
@@ -38,15 +36,7 @@ public class RecipeApiService {
     public RecipeCrudResponse create(RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = modelMapper.map(recipeCreationRequest, Recipe.class);
         recipe = recipeCrud.save(recipe);
-
-        for (RecipeStep step: recipe.getStep()) {
-            step.setRecipe(recipe);
-            recipeStepCrud.save(step);
-        }
-        for (Ingredient ing: recipe.getIngredients()) {
-            ing.setRecipe(recipe);
-            ingredientCrud.save(ing);
-        }
+        recipeCrud.saveStepsAndIngredients(recipe);
         return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
@@ -54,20 +44,8 @@ public class RecipeApiService {
     public RecipeCrudResponse update(Long id, RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = recipeCrud.findById(id);
         modelMapper.map(recipeCreationRequest, recipe);
+        recipeCrud.saveStepsAndIngredients(recipe);
         recipe = recipeCrud.save(recipe);
-
-        recipeStepCrud.DeleteByRecipeId(id);
-        for (RecipeStep step: recipe.getStep()) {
-            step.setRecipe(recipe);
-            recipeStepCrud.save(step);
-        }
-        ingredientCrud.DeleteByRecipeId(id);
-        for (Ingredient ing: recipe.getIngredients()) {
-            ing.setRecipe(recipe);
-            ingredientCrud.save(ing);
-        }
-
-
         return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 

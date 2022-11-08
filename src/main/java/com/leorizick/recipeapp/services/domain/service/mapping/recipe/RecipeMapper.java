@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Configuration
 @RequiredArgsConstructor
@@ -29,16 +30,16 @@ public class RecipeMapper {
         modelMapper.createTypeMap(RecipeCreationRequest.class, Recipe.class).setConverter(context -> {
             var src = context.getSource();
             var recipe = context.getDestination();
-            if(recipe == null){
+            if (recipe == null) {
                 recipe = new Recipe();
                 recipe.setAuthor(authenticationContext.getAccount());
             }
 
             var ingredients = src.getIngredients()
-                    .stream().map(ingredient -> modelMapper.map(ingredient, Ingredient.class)).toList();
+                    .stream().map(ingredient -> modelMapper.map(ingredient, Ingredient.class)).collect(Collectors.toList());
 
             var steps = src.getSteps()
-                    .stream().map(step -> modelMapper.map(step, RecipeStep.class)).toList();
+                    .stream().map(step -> modelMapper.map(step, RecipeStep.class)).collect(Collectors.toList());
 
             recipe.setName(src.getName());
             recipe.setCategory(recipeCategoryCrud.findById(src.getCategoryId()));
