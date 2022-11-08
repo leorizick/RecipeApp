@@ -54,6 +54,7 @@ public class RecipeApiService {
     public RecipeCrudResponse update(Long id, RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = recipeCrud.findById(id);
         modelMapper.map(recipeCreationRequest, recipe);
+        recipe = recipeCrud.save(recipe);
 
         recipeStepCrud.DeleteByRecipeId(id);
         for (RecipeStep step: recipe.getStep()) {
@@ -66,7 +67,7 @@ public class RecipeApiService {
             ingredientCrud.save(ing);
         }
 
-        recipe = recipeCrud.save(recipe);
+
         return modelMapper.map(recipe, RecipeCrudResponse.class);
     }
 
