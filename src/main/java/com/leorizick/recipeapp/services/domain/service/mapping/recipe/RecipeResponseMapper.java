@@ -39,10 +39,12 @@ public class RecipeResponseMapper {
                             .collect(Collectors.toList());
 
                     var steps = src.getStep()
-                            .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep())).toList();
+                            .stream().map(step -> new RecipeStepSummaryResponse(step.getId(), step.getStep()))
+                            .collect(Collectors.toList());
 
                     var ingredients = src.getIngredients().stream()
-                            .map(ing -> new IngredientSummaryResponse(ing.getId(), ing.getIngredient())).toList();
+                            .map(ing -> new IngredientSummaryResponse(ing.getId(), ing.getIngredient()))
+                            .collect(Collectors.toList());
 
                     var liker = authenticationContext.getAccountId();
 

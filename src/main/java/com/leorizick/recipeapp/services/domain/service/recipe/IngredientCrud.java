@@ -36,7 +36,6 @@ public class IngredientCrud {
 
     @Transactional
     public void DeleteByRecipeId(Long recipeId){
-        
         ingredientRepository.deleteByRecipeId(recipeId);
     }
 
@@ -45,5 +44,5 @@ public class IngredientCrud {
             throw new AccountTypeNotAllowed("author");
         }
     }
-    
+
 }
