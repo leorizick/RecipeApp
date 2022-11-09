@@ -1,0 +1,62 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221109-creating-table-food" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="food" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="food">
+            <column name="id" type="BIGINT" autoIncrement="true" >
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="name" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="calories" type="DECIMAL(13,1)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="weight" type="DECIMAL(13,1)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="carbohydrate" type="DECIMAL(13,1)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="protein" type="DECIMAL(13,1)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="fat" type="DECIMAL(13,1)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="multiplier" type="DECIMAL(13,1)"> </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="20221109-creating-index-food" author="leorizick">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="idx-food-name" />
+            </not>
+        </preConditions>
+
+        <createIndex tableName="food" indexName="idx-food-name">
+            <column name="name" />
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>
