@@ -1,0 +1,46 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221108-inserting-rating-role" author="leorizick">
+
+        <insert tableName="food">
+            <column name="name" value="Pão integral"/>
+            <column name="calories" value="232"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="39.9"/>
+            <column name="protein" value="7.6"/>
+            <column name="fat" value="3"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Queijo ricota"/>
+            <column name="calories" value="140 "/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="3.8"/>
+            <column name="protein" value="12.6"/>
+            <column name="fat" value="8.1"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Ovo frito"/>
+            <column name="calories" value="240 "/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="1.2"/>
+            <column name="protein" value="15.6"/>
+            <column name="fat" value="18.6"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Ovo cozido"/>
+            <column name="calories" value="146"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0.6"/>
+            <column name="protein" value="13.3"/>
+            <column name="fat" value="9.5"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,13 +1,8 @@
 package com.leorizick.recipeapp.services.domain.service.rating;
 
 import com.leorizick.recipeapp.entities.rating.Rating;
-import com.leorizick.recipeapp.entities.recipe.Ingredient;
-import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.repositories.rating.RatingRepository;
-import com.leorizick.recipeapp.repositories.recipe.IngredientRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
-import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
-import com.leorizick.recipeapp.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +21,7 @@ public class RatingManagement {
     }
 
     @Transactional
-    public void DeleteByRecipeId(Long recipeId, Long accountId) {
+    public void deleteByRecipeId(Long recipeId, Long accountId) {
         ratingRepository.deleteByRecipeAndAccountId(recipeId, accountId);
     }
 
