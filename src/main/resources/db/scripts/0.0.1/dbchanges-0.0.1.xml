@@ -27,5 +27,8 @@
     <include relativeToChangelogFile="true" file="20221107-inserting-comment-role.xml" />
     <include relativeToChangelogFile="true" file="20221107-inserting-like-role.xml" />
     <include relativeToChangelogFile="true" file="20221108-inserting-rating-role.xml" />
+    <include relativeToChangelogFile="true" file="20221109-creating-table-food.xml" />
+    <include relativeToChangelogFile="true" file="20221109-inserting-food.xml" />
+    <include relativeToChangelogFile="true" file="20221109-inserting-calculator-role.xml" />
 
 </databaseChangeLog>
