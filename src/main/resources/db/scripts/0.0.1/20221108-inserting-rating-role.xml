@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221108-inserting-rating-role" author="leorizick">
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="RECIPE_RATE"/>
+            <column name="description" value="can rate a recipe"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'RECIPE_RATE')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'RECIPE_RATE')"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

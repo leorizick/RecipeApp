@@ -10,6 +10,7 @@
     <include relativeToChangelogFile="true" file="20221019-creating-table-recipe-category.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-recipe.xml" />
     <include relativeToChangelogFile="true" file="20221107-creating-table-comment.xml" />
+    <include relativeToChangelogFile="true" file="20221108-creating-table-recipe-rating.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-role.xml" />
     <include relativeToChangelogFile="true" file="20221107-creating-table-comment.xml" />
     <include relativeToChangelogFile="true" file="20221019-creating-table-credential-profile.xml" />
@@ -25,5 +26,6 @@
     <include relativeToChangelogFile="true" file="20221108-inserting-ingredient-role.xml" />
     <include relativeToChangelogFile="true" file="20221107-inserting-comment-role.xml" />
     <include relativeToChangelogFile="true" file="20221107-inserting-like-role.xml" />
+    <include relativeToChangelogFile="true" file="20221108-inserting-rating-role.xml" />
 
 </databaseChangeLog>

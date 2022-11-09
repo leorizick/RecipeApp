@@ -28,6 +28,8 @@ public class RecipeCrudResponse {
     private String category;
     private AccountSummaryResponse author;
     private Long likesCount;
+    private Integer ratesCount;
+    private Integer rating;
     private boolean isLiked;
 
 }

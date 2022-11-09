@@ -8,6 +8,7 @@ import com.leorizick.recipeapp.dto.recipe.RecipeStepSummaryResponse;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.repositories.like.RecipeLikeRepository;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
+import com.leorizick.recipeapp.services.domain.service.rating.RatingManagement;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +23,7 @@ public class RecipeResponseMapper {
     private final ModelMapper modelMapper;
     private final RecipeLikeRepository recipeLikeRepository;
     private final AuthenticationContext authenticationContext;
+    private final RatingManagement ratingManagement;
 
     @PostConstruct
     public void configure() {
@@ -48,6 +50,10 @@ public class RecipeResponseMapper {
 
                     var liker = authenticationContext.getAccountId();
 
+                    var ratesCount = ratingManagement.getRatingCount(src.getId());
+
+                    var rating = ratingManagement.getRatingTotal(src.getId());
+
                     return RecipeCrudResponse.builder()
                             .id(src.getId())
                             .createdAt(LocalDateTime.now())
@@ -62,6 +68,8 @@ public class RecipeResponseMapper {
                             .category(src.getCategory().getName())
                             .isLiked(recipeLikeRepository.isLiked(src.getId(), liker))
                             .likesCount(recipeLikeRepository.likeCount(src.getId()))
+                            .ratesCount(ratesCount)
+                            .rating(rating)
                             .build();
                 });
     }

@@ -2,6 +2,7 @@ package com.leorizick.recipeapp.entities.recipe;
 
 import com.leorizick.recipeapp.entities.RecipeCategory;
 import com.leorizick.recipeapp.entities.account.Account;
+import com.leorizick.recipeapp.entities.rating.Rating;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -43,6 +45,9 @@ public class Recipe {
 
     @OneToMany(mappedBy = "recipe")
     private List<RecipeStep> step;
+
+    @OneToMany(mappedBy = "recipe")
+    private Set<Rating> rating;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "category_id")
