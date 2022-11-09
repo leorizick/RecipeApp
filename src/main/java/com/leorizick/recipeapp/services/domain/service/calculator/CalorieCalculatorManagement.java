@@ -18,22 +18,12 @@ public class CalorieCalculatorManagement {
     public CalculatorFinalResponse multiplyFoodContent(List<Food> foods) {
         List<FoodResponse> foodResponseList = new ArrayList<>();
 
-        BigDecimal totalCalories = new BigDecimal(0);
-
-        BigDecimal totalWeight = new BigDecimal(0);
-
-        BigDecimal totalCarbohydrate = new BigDecimal(0);
-
-        BigDecimal totalProtein = new BigDecimal(0);
-
-        BigDecimal totalFat = new BigDecimal(0);
-
         CalculatorTotalResponse calculatorTotalResponse = CalculatorTotalResponse.builder()
-                .totalCalories(totalCalories)
-                .totalCarbohydrate(totalCarbohydrate)
-                .totalFat(totalFat)
-                .totalProtein(totalProtein)
-                .totalWeight(totalWeight)
+                .totalCalories(new BigDecimal(0))
+                .totalCarbohydrate(new BigDecimal(0))
+                .totalFat(new BigDecimal(0))
+                .totalProtein(new BigDecimal(0))
+                .totalWeight(new BigDecimal(0))
                 .build();
 
         for (Food food : foods) {
@@ -41,29 +31,25 @@ public class CalorieCalculatorManagement {
 
             FoodResponse foodResponse = FoodResponse.builder()
                     .name(food.getName())
-                    .calories( food.getCalories().multiply(multiplier))
+                    .calories(food.getCalories().multiply(multiplier))
                     .carbohydrate(food.getCarbohydrate().multiply(multiplier))
                     .protein(food.getProtein().multiply(multiplier))
                     .weight(food.getWeight().multiply(multiplier))
                     .fat(food.getFat().multiply(multiplier))
                     .build();
-
             foodResponseList.add(foodResponse);
 
-            totalCalories = totalCalories.add(foodResponse.getCalories());
-            totalWeight = totalWeight.add(foodResponse.getWeight());
-            totalCarbohydrate = totalCarbohydrate.add(foodResponse.getCarbohydrate());
-            totalProtein = totalProtein.add(foodResponse.getProtein());
-            totalFat = totalFat.add(foodResponse.getFat());
-
-            calculatorTotalResponse.getTotalCalories().add(foodResponse.getCalories());
-            totalWeight = totalWeight.add(foodResponse.getWeight());
-            totalCarbohydrate = totalCarbohydrate.add(foodResponse.getCarbohydrate());
-            totalProtein = totalProtein.add(foodResponse.getProtein());
-            totalFat = totalFat.add(foodResponse.getFat());
+            calculatorTotalResponse.setTotalCalories(calculatorTotalResponse.getTotalCalories()
+                    .add(foodResponse.getCalories()));
+            calculatorTotalResponse.setTotalWeight(calculatorTotalResponse.getTotalWeight()
+                    .add(foodResponse.getWeight()));
+            calculatorTotalResponse.setTotalCarbohydrate(calculatorTotalResponse.getTotalCarbohydrate()
+                    .add(foodResponse.getCarbohydrate()));
+            calculatorTotalResponse.setTotalProtein(calculatorTotalResponse.getTotalProtein()
+                    .add(foodResponse.getProtein()));
+            calculatorTotalResponse.setTotalFat(calculatorTotalResponse.getTotalFat()
+                    .add((foodResponse.getFat())));
         }
-
-
 
         return CalculatorFinalResponse.builder()
                 .foodList(foodResponseList)
