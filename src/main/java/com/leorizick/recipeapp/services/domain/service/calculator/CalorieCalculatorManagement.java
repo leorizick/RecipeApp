@@ -4,8 +4,6 @@ import com.leorizick.recipeapp.dto.calculator.CalculatorFinalResponse;
 import com.leorizick.recipeapp.dto.calculator.CalculatorTotalResponse;
 import com.leorizick.recipeapp.dto.calculator.FoodResponse;
 import com.leorizick.recipeapp.entities.calculator.Food;
-import com.leorizick.recipeapp.repositories.calculator.FoodRepository;
-import com.leorizick.recipeapp.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,22 +28,24 @@ public class CalorieCalculatorManagement {
 
         BigDecimal totalFat = new BigDecimal(0);
 
+        CalculatorTotalResponse calculatorTotalResponse = CalculatorTotalResponse.builder()
+                .totalCalories(totalCalories)
+                .totalCarbohydrate(totalCarbohydrate)
+                .totalFat(totalFat)
+                .totalProtein(totalProtein)
+                .totalWeight(totalWeight)
+                .build();
+
         for (Food food : foods) {
-            var name = food.getName();
-            var calories = food.getCalories();
-            var carbohydrate = food.getCarbohydrate();
-            var protein = food.getProtein();
-            var weight = food.getWeight();
-            var fat = food.getFat();
             var multiplier = food.getMultiplier();
 
             FoodResponse foodResponse = FoodResponse.builder()
-                    .name(name)
-                    .calories(calories.multiply(multiplier))
-                    .carbohydrate(carbohydrate.multiply(multiplier))
-                    .protein(protein.multiply(multiplier))
-                    .weight(weight.multiply(multiplier))
-                    .fat(fat.multiply(multiplier))
+                    .name(food.getName())
+                    .calories( food.getCalories().multiply(multiplier))
+                    .carbohydrate(food.getCarbohydrate().multiply(multiplier))
+                    .protein(food.getProtein().multiply(multiplier))
+                    .weight(food.getWeight().multiply(multiplier))
+                    .fat(food.getFat().multiply(multiplier))
                     .build();
 
             foodResponseList.add(foodResponse);
@@ -55,14 +55,15 @@ public class CalorieCalculatorManagement {
             totalCarbohydrate = totalCarbohydrate.add(foodResponse.getCarbohydrate());
             totalProtein = totalProtein.add(foodResponse.getProtein());
             totalFat = totalFat.add(foodResponse.getFat());
+
+            calculatorTotalResponse.getTotalCalories().add(foodResponse.getCalories());
+            totalWeight = totalWeight.add(foodResponse.getWeight());
+            totalCarbohydrate = totalCarbohydrate.add(foodResponse.getCarbohydrate());
+            totalProtein = totalProtein.add(foodResponse.getProtein());
+            totalFat = totalFat.add(foodResponse.getFat());
         }
-        CalculatorTotalResponse calculatorTotalResponse = CalculatorTotalResponse.builder()
-                .totalCalories(totalCalories)
-                .totalCarbohydrate(totalCarbohydrate)
-                .totalFat(totalFat)
-                .totalProtein(totalProtein)
-                .totalWeight(totalWeight)
-                .build();
+
+
 
         return CalculatorFinalResponse.builder()
                 .foodList(foodResponseList)

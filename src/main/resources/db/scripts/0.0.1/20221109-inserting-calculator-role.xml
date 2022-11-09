@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20221109-inserting-calculator-role" author="leorizick">
+
+        <insert tableName="role">
+            <column name="version" value="0"/>
+            <column name="created_at" value="2022-10-20"/>
+            <column name="updated_at" value="2022-10-20"/>
+            <column name="name" value="CALCULATOR_CREATE"/>
+            <column name="description" value="can calculate food"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'CALCULATOR_CREATE')"/>
+        </insert>
+
+        <insert tableName="profile_role">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="role_id" valueComputed="(SELECT id FROM role WHERE name = 'CALCULATOR_CREATE')"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
