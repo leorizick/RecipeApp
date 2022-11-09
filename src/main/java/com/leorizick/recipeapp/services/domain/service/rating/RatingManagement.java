@@ -46,5 +46,4 @@ public class RatingManagement {
         return ratingTotal;
     }
 
-
 }

@@ -30,8 +30,6 @@ public class RatingMapper {
                     .account(authenticationContext.getAccount())
                     .rating(src.getRating())
                     .build();
-
-
         });
     }
 }
