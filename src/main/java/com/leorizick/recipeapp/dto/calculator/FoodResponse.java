@@ -25,6 +25,4 @@ public class FoodResponse {
 
     private BigDecimal fat;
 
-
-
 }

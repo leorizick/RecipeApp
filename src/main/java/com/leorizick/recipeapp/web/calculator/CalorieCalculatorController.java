@@ -21,7 +21,7 @@ public class CalorieCalculatorController {
 
     @PreAuthorize("hasAuthority('CALCULATOR_CREATE')")
     @PostMapping(value = "/api/calculator/create")
-    public ResponseEntity<CalculatorFinalResponse> likeRecipe(@RequestBody List<FoodCreationRequest> foodList){
+    public ResponseEntity<CalculatorFinalResponse> calculate(@RequestBody List<FoodCreationRequest> foodList){
         CalculatorFinalResponse calculatorFinalResponse = calorieCalculatorApiService.create(foodList);
         return ResponseEntity
                 .status(HttpStatus.CREATED)

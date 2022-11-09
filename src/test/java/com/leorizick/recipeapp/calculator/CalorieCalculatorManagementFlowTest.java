@@ -26,7 +26,7 @@ public class CalorieCalculatorManagementFlowTest {
     private final BigDecimal ANY_FOOD_MULTIPLIER = BigDecimal.valueOf(2);
 
     @Test
-    public void shouldLikeARecipeAndDislikeAfter(){
+    public void shouldCalculateAListOfFood(){
         var preRegisteredAdminToken = AuthenticationHelper.getTokenDefaultAccount();
 
         var request = FoodCreationRequest.builder()
@@ -56,7 +56,6 @@ public class CalorieCalculatorManagementFlowTest {
         Assertions.assertNotNull(calculated.getFoodList());
         Assertions.assertTrue(calculated.getCalculatorTotalResponse().getTotalCalories().doubleValue() > 0.0);
         Assertions.assertTrue(calculated.getFoodList().size() > 1);
-
-
+        
     }
 }
