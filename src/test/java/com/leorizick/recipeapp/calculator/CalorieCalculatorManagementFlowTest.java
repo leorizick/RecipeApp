@@ -2,9 +2,7 @@ package com.leorizick.recipeapp.calculator;
 
 import com.leorizick.recipeapp.dto.calculator.CalculatorFinalResponse;
 import com.leorizick.recipeapp.dto.calculator.FoodCreationRequest;
-import com.leorizick.recipeapp.dto.calculator.FoodResponse;
 import com.leorizick.recipeapp.web.tools.AuthenticationHelper;
-import com.leorizick.recipeapp.web.tools.RecipeHelper;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
