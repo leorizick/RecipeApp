@@ -2,6 +2,7 @@ package com.leorizick.recipeapp.web.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
+import com.leorizick.recipeapp.dto.recipe.RecipeSummaryResponse;
 import com.leorizick.recipeapp.services.api.service.recipe.RecipeApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,8 +30,17 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")
     @GetMapping(value = "/api/recipe")
-    public ResponseEntity<Page<RecipeCrudResponse>> findAll(Pageable pageable) {
-        Page<RecipeCrudResponse> recipePage = recipeApiService.findAll(pageable);
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAll(Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAll(pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/myRecipes")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByUser(Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountId(pageable);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(recipePage);

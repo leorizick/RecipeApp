@@ -67,4 +67,7 @@ public class RecipeCrud {
         }
     }
 
+    public Page<Recipe> findAllByAccountId(Pageable pageable) {
+        return recipeRepository.findAllByAccountId(authenticationContext.getAccountId(), pageable);
+    }
 }

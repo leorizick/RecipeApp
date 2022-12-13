@@ -15,4 +15,5 @@ public class AccountSummaryResponse {
     private Long id;
     private String name;
     private String username;
+    private String accountImageName;
 }

@@ -1,7 +1,9 @@
 package com.leorizick.recipeapp.entities.recipe;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leorizick.recipeapp.entities.RecipeCategory;
 import com.leorizick.recipeapp.entities.account.Account;
+import com.leorizick.recipeapp.entities.file.RecipeImg;
 import com.leorizick.recipeapp.entities.rating.Rating;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -60,5 +62,8 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe")
     @Where(clause = "enabled = true")
     private List<Comment> comment;
+
+    @OneToMany(mappedBy = "recipe")
+    private Set<RecipeImg> image;
 
 }

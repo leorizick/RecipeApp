@@ -9,10 +9,15 @@ spring:
       database-platform: org.hibernate.dialect.MySQL8Dialect
       jackson:
         default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
 
 recipeapp:
   security:
     jwt:
       password: 'rKqimrUg8L2OnlFJT59JVXRaJ'
-      expiration-time: 5400
+      expiration-time: 540000
+
 
