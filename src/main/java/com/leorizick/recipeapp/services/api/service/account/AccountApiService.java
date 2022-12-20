@@ -12,8 +12,12 @@ import com.leorizick.recipeapp.services.domain.service.config.auth.Authenticatio
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -55,5 +59,11 @@ public class AccountApiService {
         Account account = authenticationContext.getAccount();
 
         return modelMapper.map(account, AccountSummaryResponse.class);
+    }
+
+    public Page<AccountSummaryResponse> findAllAccountsByUsername(String username, Pageable pageable) {
+        Page<Account> listAccount = accountCrud.findAllAccountsByUsername(username, pageable);
+        return  listAccount.map(account -> modelMapper.map(account, AccountSummaryResponse.class));
+
     }
 }

@@ -70,4 +70,20 @@ public class RecipeCrud {
     public Page<Recipe> findAllByAccountId(Pageable pageable) {
         return recipeRepository.findAllByAccountId(authenticationContext.getAccountId(), pageable);
     }
+
+    public Page<Recipe> findAllByAccountId(Long id, Pageable pageable) {
+        return recipeRepository.findAllByAccountId(id, pageable);
+    }
+
+    public Page<Recipe> findAllByAccountIdAndLiked(Pageable pageable) {
+        return recipeRepository.findAllByAccountIdAndLiked(authenticationContext.getAccountId(), pageable);
+    }
+
+    public Page<Recipe> findAllByCategoryId(Pageable pageable, Long id) {
+        return recipeRepository.findAllByCategoryId(pageable, id);
+    }
+
+    public Page<Recipe> findAllByName(String name, Pageable pageable) {
+        return recipeRepository.findAllByNameStartsWithIgnoreCase( name, pageable);
+    }
 }

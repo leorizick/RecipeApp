@@ -39,8 +39,44 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")
     @GetMapping(value = "/api/recipe/myRecipes")
-    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByUser(Pageable pageable) {
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByAuthenticatedUser(Pageable pageable) {
         Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountId(pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/userRecipes/{id}")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByUser(@PathVariable Long id,  Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountId(id, pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/myLikedRecipes")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllLikedRecipes(Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountIdAndLiked(pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/category/{id}")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByCategoryId(@PathVariable Long id,  Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByCategoryId(pageable, id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/filter")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByName(@RequestParam("name")String name,  Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByName(name, pageable);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(recipePage);

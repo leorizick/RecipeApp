@@ -42,4 +42,8 @@ public class AccountCrud {
         account.setEnabled(false);
         accountRepository.save(account);
     }
+
+    public Page<Account> findAllAccountsByUsername(String username, Pageable pageable) {
+        return  accountRepository.findAllAccountByUsernameContainingIgnoreCase(username, pageable);
+    }
 }

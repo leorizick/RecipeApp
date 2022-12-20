@@ -67,4 +67,24 @@ public class RecipeApiService {
         Page<Recipe> recipePage = recipeCrud.findAllByAccountId(pageable);
         return recipePage.map(recipe -> modelMapper.map(recipe, RecipeSummaryResponse.class));
     }
+
+    public Page<RecipeSummaryResponse> findAllByAccountId(Long id, Pageable pageable) {
+        Page<Recipe> recipePage = recipeCrud.findAllByAccountId(id, pageable);
+        return recipePage.map(recipe -> modelMapper.map(recipe, RecipeSummaryResponse.class));
+    }
+
+    public Page<RecipeSummaryResponse> findAllByAccountIdAndLiked(Pageable pageable) {
+        Page<Recipe> recipePage = recipeCrud.findAllByAccountIdAndLiked(pageable);
+        return recipePage.map(recipe -> modelMapper.map(recipe, RecipeSummaryResponse.class));
+    }
+
+    public Page<RecipeSummaryResponse> findAllByCategoryId(Pageable pageable, Long id) {
+        Page<Recipe> recipePage = recipeCrud.findAllByCategoryId(pageable, id);
+        return recipePage.map(recipe -> modelMapper.map(recipe, RecipeSummaryResponse.class));
+    }
+
+    public Page<RecipeSummaryResponse> findAllByName(String name, Pageable pageable) {
+        Page<Recipe> recipePage = recipeCrud.findAllByName(name, pageable);
+        return recipePage.map(recipe -> modelMapper.map(recipe, RecipeSummaryResponse.class));
+    }
 }

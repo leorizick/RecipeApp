@@ -7,6 +7,8 @@ import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
 import com.leorizick.recipeapp.services.api.service.account.AccountApiService;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
@@ -43,6 +46,14 @@ public class AccountCreationController {
     @GetMapping(value = "/api/account/authenticated")
     public ResponseEntity<AccountSummaryResponse> getAuthenticated(){
         AccountSummaryResponse accountSummaryResponse = accountApiService.getAuthenticated();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountSummaryResponse);
+    }
+
+    @GetMapping(value = "/api/account/user")
+    public ResponseEntity<Page<AccountSummaryResponse>> findAllAccountsByUsername(@RequestParam("username")String username, Pageable pageable){
+        Page<AccountSummaryResponse> accountSummaryResponse = accountApiService.findAllAccountsByUsername(username, pageable);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(accountSummaryResponse);

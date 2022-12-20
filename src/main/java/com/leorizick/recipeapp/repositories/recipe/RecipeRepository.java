@@ -16,5 +16,11 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query("select r from Recipe r where r.author.id = :accountId and r.enabled = true")
     Page<Recipe> findAllByAccountId(Long accountId, Pageable pageable);
 
+    @Query("select r from Recipe r inner join RecipeLike rl on r.id = rl.recipe.id where rl.account.id = :accountId and r.enabled = true")
+    Page<Recipe> findAllByAccountIdAndLiked(Long accountId, Pageable pageable);
 
+    @Query("select r from Recipe r where r.category.id = :id and r.enabled = true")
+    Page<Recipe> findAllByCategoryId(Pageable pageable, Long id);
+
+    Page<Recipe> findAllByNameStartsWithIgnoreCase(String name, Pageable pageable);
 }
