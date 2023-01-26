@@ -40,7 +40,7 @@
             <column name="version" value="0"/>
             <column name="created_at" value="20220930"/>
             <column name="updated_at" value="20220930"/>
-            <column name="name" value="Vegetariano"/>
+            <column name="name" value="Veggie"/>
             <column name="enabled" valueBoolean="true" />
         </insert>
 
@@ -49,6 +49,22 @@
             <column name="created_at" value="20220930"/>
             <column name="updated_at" value="20220930"/>
             <column name="name" value="Vegano"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Simples"/>
+            <column name="enabled" valueBoolean="true" />
+        </insert>
+
+        <insert tableName="recipe_category">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Fit"/>
             <column name="enabled" valueBoolean="true" />
         </insert>
     </changeSet>

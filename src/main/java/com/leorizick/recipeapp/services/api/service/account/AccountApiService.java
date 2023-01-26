@@ -17,6 +17,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +42,27 @@ public class AccountApiService {
         credentialCrud.save(credential);
 
         AccountCreationResponse accountCreationResponse = modelMapper.map(credential, AccountCreationResponse.class);
+        return accountCreationResponse;
+    }
+
+    @Transactional
+    public AccountCreationResponse updateAccount(Long id, AccountCreationRequest accountCreationRequest){
+        if(!Objects.equals(id, authenticationContext.getAccountId())) {
+            throw new AccountTypeNotAllowed("Only account owner can do this");
+        }
+            Account account = accountCrud.findById(id);
+            account.setName(accountCreationRequest.getName());
+            account.setUsername(accountCreationRequest.getUsername());
+            account.setBirth(accountCreationRequest.getBirth());
+            accountCrud.save(account);
+
+
+            Credential credential = account.getCredentials().get(account.getCredentials().size() -1);
+            credential.setEmail(accountCreationRequest.getEmail());
+            credentialCrud.save(credential);
+
+            AccountCreationResponse accountCreationResponse = modelMapper.map(credential, AccountCreationResponse.class);
+
         return accountCreationResponse;
     }
 

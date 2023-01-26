@@ -34,6 +34,11 @@ public class FileManagement {
         return recipeImgRepository.findAllByRecipeId(recipeId);
     }
 
+    public List<RecipeImg> getRecipeImagesNotCover(Long recipeId){
+        return recipeImgRepository.findAllNotCoverByRecipeId(recipeId);
+    }
+
+
     public String getAccountImage(Long id) {
         var img = accountImgRepository.getAccountImage(id);
         if(img == null){
@@ -44,5 +49,9 @@ public class FileManagement {
     public AccountImg saveAccountImg(AccountImg accountImg){
         accountImgRepository.deleteByRecipeAndAccountId(accountImg.getAccount().getId());
         return accountImgRepository.save(accountImg);
+    }
+
+    public void deleteRecipeImgByName(String name, Long id){
+        recipeImgRepository.deleteRecipeImgByName(id, name);
     }
 }

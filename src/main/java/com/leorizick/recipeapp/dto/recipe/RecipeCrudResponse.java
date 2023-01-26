@@ -17,8 +17,6 @@ import java.util.List;
 public class RecipeCrudResponse {
 
     private Long id;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
     private String name;
     private String description;
     private List<IngredientSummaryResponse> ingredients;
@@ -26,10 +24,13 @@ public class RecipeCrudResponse {
     private List<RecipeStepSummaryResponse> step;
     private List<CommentSummaryResponse> comment;
     private String category;
+    private Long categoryId;
     private AccountSummaryResponse author;
     private Long likesCount;
     private Integer ratesCount;
+    private Integer userRating;
     private Integer rating;
+    private String cover;
     private List<String> recipeImages;
     private boolean isLiked;
 

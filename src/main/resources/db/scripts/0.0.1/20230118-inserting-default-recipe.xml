@@ -1,0 +1,1611 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20230118-inserting-default-recipe-1" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Pizza Marguerita"/>
+            <column name="description" value="A melhor entre todas as pizzas!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" valueComputed="3"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 xícara e meia de agua (300ml)"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Meia xicara de leite (100ml)"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 colheres de azeite"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 ovo"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Sal a gosto"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 envelopes de fermento biológico seco (20 g)"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 kg de farinha de trigo"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient"
+                    value="Molho de tomate, muçarela ralada grosso, rodelas de tomate (ou metades de tomate-cereja) e folhas de manjericão"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Reserve a farinha e misture os demais ingredientes"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Vá adicionando a farinha aos poucos, enquanto amassa, até ficar consistente"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Transfira para uma superfície enfarinhada e amasse, polvilhando mais farinha se necessário, até desgrudar das mãos"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Sove bem a massa por uns 10 minutos ou até ficar lisa e macia"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Divida em 8 porções, modele bolas, cubra e deixe crescer por 30 minutos"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Estenda as bolas de massa com os dedos ou com o rolo até formar discos na espessura desejada e acomode em fôrmas de pizza"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Passe molho de tomate em cada disco, deixando a borda livre, e leve ao forno alto preaquecido (220 ºC) por 10 minutos"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Distribua a muçarela e rodelas de tomate e leve de volta ao forno até dourar a borda e derreter o queijo"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Sirva decoradas com folhas de manjericão"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/1/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="1"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/1/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="1"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/1/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="1"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-2" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Panquecas ao sugo"/>
+            <column name="description" value="Deliciosa panqueca com massa fofinha!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" valueComputed="3"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 litro de leite"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="3 ovos"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="4 colheres de oleo"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="12 colheres de farinha"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Temperos da sua preferencia"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Molho de tomate, 300g"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Recheio a sua escolha, carne moida fica uma delicia!"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="150g de queijo mussarela ralado"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Va acrescentando a farinha, até achar o ponto onde a massa nao fique rala, a massa de minha preferencia necessitou das 12 colheres de farinha"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Unte uma frigideira com um pouquinho de azeite"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque uma conxa da massa na frigideira, e apos a mesma estar soltinha, vire-a do outro lado, repita o processo até acabar com a massa"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque o recheio da sua escolha no centro da panqueca, e enrole até formar um rolinho"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque as panquecas em um recipiente, despeje o molho de tomate por cima, cubra com o queijo ralado e leve ao forno por aproximadaente 15 minutos, ou até o queijo gratinar"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/2/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="2"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/2/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="2"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/2/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="2"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-3" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Escondidinho de carne seca"/>
+            <column name="description" value="Huuum, uma receita pra não esconder de ninguem!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="2"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1Kg de mandioca"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2Kg de carne seca"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 cebola"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 colheres de margarina"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 caixinha de creme de leite"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 potinho de requeijão"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="150g de queijo mussarela ralado"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Cozinhe a carne seca por 20 minutos na pressão (Lembre-se de abaixar o fogo após pegar pressão)"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Cozinhe a mandioca por cerca de 10 minutos na pressão, ou se preferir, até ficar mole em uma panela normal"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Amasse a mandioca, misturando-a com as duas colheres de margarina e a caixa de creme de leite"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Desfie a carne seca com a ajuda de um garfo, depois frite-a com a cebola. Acrescente o requeijão para o recheio ficar cremoso"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque uma camada da massa de mandioca em um refratario, acrescente a carne seca, e cubra com o restante da massa de mandioca. Acrescente queijo ralado em cima, e leve no forno até gratinar!"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/3/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="3"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/3/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="3"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/3/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="3"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/3/4.jpg"/>
+            <column name="name" value="4.jpg"/>
+            <column name="recipe_id" value="3"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-4" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Frango preguiçoso"/>
+            <column name="description" value="O frango mais macio que voce ja provou!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="1"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1Kg filé de frango"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="200g de farinha de rosca"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 sache de molho de tomate"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 vidro de leite de coco"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 potinho de requeijão"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Tempero a gosto"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque o sache do molho de tomate, o leite de coco e o potinho do requeijão, juntamente com os temperos em um liquidificador. (Recomendamos paprica defumada, curry, oregano e sal)"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Tempere o frango, e empane-o com a farinha de rosca"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque em um refratario, e leve ao forno por cerca de 20 a 30 minutos, em 180º."/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/4/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="4"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/4/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="4"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/4/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="4"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/4/4.jpg"/>
+            <column name="name" value="4.jpg"/>
+            <column name="recipe_id" value="4"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+    </changeSet>
+
+
+    <changeSet id="20230118-inserting-default-recipe-5" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Beringela recheada"/>
+            <column name="description" value="Incrivelmente gostoso!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="5"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 berinjela"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 dentes de alho"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 cebola"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 tomate"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="150g de queijo ralado"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Corte a berinjela ao meio, e com uma colher, retire o seu miolo"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Em uma frigideira, adicione um fio de azeite e doure o alho"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Pique a cebola, o tomate e o miolo da berinjela que retirou e acrescente na frigideira, mexa até refogar"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Recheie as duas metades da berinjela com o refogado do passo anterior, coloque o queijo por cima e leve ao forno por cerca de 15 minutos"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/5/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="5"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/5/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="5"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/5/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="5"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-6" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Mini abobora recheada"/>
+            <column name="description" value="Uma delicia para servir como entrada!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="2"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 abobora pumpkin"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 dentes de alho"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 cebola"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="100g de pernil ja cozido ou recheio a gosto"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 caixinha de creme de leite"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="100g de queijo ralado"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Faça um buraco no topo da abobora, e retire o bagaço e as sementes com uma colher"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Leve a abobora ao forno por 15 minutos, se possivel enrole em papel aluminio para ajudar no cozimento."/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Após dourar o alho em uma frigideira, acrescente a cebola picada e o pernil (ou recheio de sua escolha) a panela. Tempere a gosto"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Acrescente a caixinha de creme de leite, se quiser, coloque um pouco de mostara para dar um gosto sensacional ao 'estrogonofe' "/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Retire a abobora do forne e a recheie com a mistura do passo anterior, coloque o queijo ralado por cima e leve ao forno por mais 10 minutos "/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/6/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="6"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/6/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="6"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/6/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="6"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="6"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-7" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Crepioca vegetariana"/>
+            <column name="description" value="Mata a fome e é fitness!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="5"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 ovos"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 colheres de farinha de tapioca"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 dente de alho"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 cebola"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 tomate"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Folhas de manjericão a vontade"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Em um recipiente, quebre os dois ovos, e adicione 2 colheres de farinha de tapioca, coloque sal e temperos a gosto, mistura bem com o auxilio de um garfo"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Unte uma frigideira com um fio de zeite, e despeje a mistura. Quando a parte de cima nao estiver mais mole, vire e deixe cozinhar o outro lado, separe a massa da crepioca"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Acrescente mais um pouco de oleo, doure o alho, acrescente a cebola e o tomate picadinhos. Deixe fritar um pouco para pegar o sabor. Tempere como quiser"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Coloque a mistura na massa da crepioca e dobre-a ao meio. Enfeite com as folhinhas de manjericão "/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/7/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="7"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/7/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="7"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/7/3.jpg"/>
+            <column name="name" value="3.jpg"/>
+            <column name="recipe_id" value="7"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="7"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-8" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Arroz soltinho"/>
+            <column name="description" value="O basico do dia a dia!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="7"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 xicara de arroz"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="3 dentes e alho"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 cebola"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Sal a gosto"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Em uma panela, acrescente um pouco de oleo e o alho amassado, deixe dourar"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Acrescente a cebola, e mexa até a mesma ficar semi-transparente"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Acrescente o arroz, e frite sem agua por 1 minuto e meio (Assim ele ficara com muito mais sabor, e mais soltinho!)"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Acrescente 4 xicaras de agua (o dobro da medida do arroz)"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Deixe cozinhar por aproximadamente 20 minutos em fogo médio, ou até nao ter mais água no fundo da panela"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/8/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="8"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="8"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-9" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Bolo de fubá"/>
+            <column name="description" value="Ja passa o cafézinho!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="4"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 xicara e 1/2 de fubá"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 xicara e 1/2 de açucar"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="3 ovos"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 colheres de margarina"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 xicara de farinha de trigo"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 colher de sopa de fermento em pó"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="4 xicaras de leite"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="100g de queijo parmesão ralado"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Leve todos os ingredientes a um liquidificador, e bata por volta de 3 minutos, é normal a mistura ficar bem liquida!"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Leve a mistura a uma forma untada com margarina, e coloque para assar de 30 a 40 minutos, com o forno a 180º, ou até perceber que a textura do bolo esta bem firme"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/9/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="9"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/9/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="9"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="9"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-10" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Brigadeirão de microondas"/>
+            <column name="description" value="Gostoso e pratico!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="4"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 lata de leite condensado"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 caixinha de creme de leite"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 xícara de chocolate em pó"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 colher de margarina"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="3 ovos inteiros"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="chocolate granulado a gosto"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Coloque todos os ingredientes no liquidificador, e bata por cerca de 3 minutos"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Unte uma forma (de preferencia de silicone) com margarina, e leve ao micro-ondas por 10 minutos"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step"
+                    value="Desenforme o brigadeirão e despeje o granulado por cima, o quanto quiser =P"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/10/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="10"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/10/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="10"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-11" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Pão de queijo vegano"/>
+            <column name="description" value="Ninguem vai acreditar quando disser que é vegano!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="6"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 xícaras de polvilho doce"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 batata e 1/2 bem cozidas e amassadas"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/2 xícara de polvilho azedo"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/3 de xícara de óleo vegetal"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1/4 de xícara de água morna"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="Sal a gosto"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Coloque todos os ingredientes no liquidificador, e bata por cerca de 3 minutos"/>
+            <column name="recipe_id" value="10"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Cozinhe a batata por cerca de 15 minutos, e faça um pure com ela"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Adicione os outros ingredientes a um recipiente, e misture tudo até que vire uma massa"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Molde a massa em bolinhas e leve a uma forma, lembre de deixar um espacinho pois eles crescem"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Leve ao forno até que a massa fique douradinha e sequinha"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/11/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="11"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/11/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="11"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="11"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="20230118-inserting-default-recipe-12" author="leorizick">
+        <insert tableName="recipe">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="name" value="Omelete de forno"/>
+            <column name="description" value="Pra ficar grandão!"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="category_id" value="8"/>
+            <column name="account_id" value="1"/>
+        </insert>
+
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="6 ovos"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 cenoura ralada"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 lata de milho"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 lata de seleta de legumes, ou pique legumes de sua preferencia"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="1 cebola picada"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="ingredient" value="2 dentes e alho"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Em um recipiente, misture bem todos os ingredientes, até o ovo ficar homogeneo"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Unte uma travessa para ir ao forno, e despeje a mistura"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+        <insert tableName="recipe_step">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20220930"/>
+            <column name="updated_at" value="20220930"/>
+            <column name="step" value="Leve ao forno por 20 minutos, ou até ficar douradinho"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/12/1.jpg"/>
+            <column name="name" value="1.jpg"/>
+            <column name="recipe_id" value="12"/>
+            <column name="cover" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="recipe_img">
+            <column name="created_at" value="20220930"/>
+            <column name="path" value="assets/images/recipes/12/2.jpg"/>
+            <column name="name" value="2.jpg"/>
+            <column name="recipe_id" value="12"/>
+            <column name="cover" valueBoolean="false"/>
+        </insert>
+
+
+        <insert tableName="rating">
+            <column name="rating" value="5"/>
+            <column name="account_id" value="1"/>
+            <column name="recipe_id" value="12"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

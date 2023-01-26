@@ -8,8 +8,8 @@
             <column name="version" value="0"/>
             <column name="created_at" value="20220930"/>
             <column name="updated_at" value="20220930"/>
-            <column name="name" value="Admin"/>
-            <column name="username" value="admin-1"/>
+            <column name="name" value="Hora do Rango"/>
+            <column name="username" value="Hora do Rango"/>
             <column name="birth" value="1970-01-01"/>
             <column name="enabled" valueBoolean="true" />
         </insert>
@@ -21,7 +21,7 @@
             <column name="email" value="admin@recipe.com"/>
             <column name="password" value="$2a$10$j4bTU7Ufndz9/sHrlC5xeeZ4aKAhOd24m.Rl8QxgbtRpmFlpyHGri"/>
             <column name="enabled" valueBoolean="true" />
-            <column name="account_id" valueComputed="(SELECT id FROM account WHERE username = 'admin-1')" />
+            <column name="account_id" valueComputed="(SELECT id FROM account WHERE username = 'Hora do Rango')" />
         </insert>
 
         <insert tableName="credential_profile">

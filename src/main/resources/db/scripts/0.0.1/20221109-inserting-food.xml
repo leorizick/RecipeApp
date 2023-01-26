@@ -41,6 +41,78 @@
             <column name="fat" value="9.5"/>
         </insert>
 
+        <insert tableName="food">
+            <column name="name" value="Carne de porco"/>
+            <column name="calories" value="393"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="24.00"/>
+            <column name="fat" value="33.0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Carne de porco"/>
+            <column name="calories" value="393"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="24.00"/>
+            <column name="fat" value="33.0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Bacon"/>
+            <column name="calories" value="570"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="10"/>
+            <column name="fat" value="59"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Fraldinha boi"/>
+            <column name="calories" value="105"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="22"/>
+            <column name="fat" value="2"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Filé tilapia"/>
+            <column name="calories" value="99.2"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="11.2"/>
+            <column name="fat" value="6.8"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Salsicha"/>
+            <column name="calories" value="200"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="3.2"/>
+            <column name="protein" value="13.2"/>
+            <column name="fat" value="15"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Quejo mussarela"/>
+            <column name="calories" value="330"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="3.1"/>
+            <column name="protein" value="22.7"/>
+            <column name="fat" value="25.2"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Arroz cozido"/>
+            <column name="calories" value="128"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="28.1"/>
+            <column name="protein" value="2.5"/>
+            <column name="fat" value="0.2"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>

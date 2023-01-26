@@ -32,5 +32,8 @@
     <include relativeToChangelogFile="true" file="20221109-inserting-calculator-role.xml" />
     <include relativeToChangelogFile="true" file="20221130-creating-table-account-img.xml" />
     <include relativeToChangelogFile="true" file="20221130-creating-table-recipe-img.xml" />
+    <include relativeToChangelogFile="true" file="20230118-inserting-user-admin-account-img.xml" />
+    <include relativeToChangelogFile="true" file="20230118-inserting-default-recipe.xml" />
+
 
 </databaseChangeLog>

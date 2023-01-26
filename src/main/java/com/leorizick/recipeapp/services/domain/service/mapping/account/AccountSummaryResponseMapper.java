@@ -31,6 +31,8 @@ public class AccountSummaryResponseMapper {
                     .id(src.getId())
                     .name(src.getName())
                     .username(src.getUsername())
+                    .email(src.getCredentials().get(0).getEmail())
+                    .birth(src.getBirth())
                     .accountImageName(imageName)
                     .build();
         });

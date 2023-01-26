@@ -100,6 +100,12 @@ public class FileApiService {
 
     }
 
+    public Resource downloadRecipeCover(Long recipeId) {
+        var name = searchRecipeCoverImgByRecipeId(recipeId);
+        return resourceLoader.getResource("file:" + recipePath + recipeId + "/" + name);
+
+    }
+
     public Resource downloadAccountResource(Long accountId, String name) {
         return resourceLoader.getResource("file:" + accountPath + accountId + "/" + name);
 
@@ -107,7 +113,7 @@ public class FileApiService {
 
     public List<Resource> downloadAllRecipeImages(Long recipeId, List<String> names) {
         List<Resource> list = new ArrayList<>();
-               names.forEach(name -> list.add(downloadRecipeResource(recipeId, name)));
+        names.forEach(name -> list.add(downloadRecipeResource(recipeId, name)));
 
         return list;
 
@@ -128,6 +134,14 @@ public class FileApiService {
 
     public List<String> searchAllRecipeImages(Long recipeId) {
         var list = fileManagement.getRecipeImages(recipeId);
+        if (list == null) {
+            return null;
+        }
+        return list.stream().map(img -> img.getName()).collect(Collectors.toList());
+    }
+
+    public List<String> searchAllNotCoverRecipeImages(Long recipeId) {
+        var list = fileManagement.getRecipeImagesNotCover(recipeId);
         if (list == null) {
             return null;
         }
@@ -157,6 +171,18 @@ public class FileApiService {
 
         fileManagement.saveAccountImg(accountImg);
 
+    }
+
+    @Transactional
+    public void deleteRecipeImage(Long id, String name) {
+        var filePath = recipePath + id + "/" + name;
+
+            try {
+                Files.deleteIfExists(Path.of(filePath));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        fileManagement.deleteRecipeImgByName(name, id);
     }
 
     private String getOriginalFileExt(String name) {

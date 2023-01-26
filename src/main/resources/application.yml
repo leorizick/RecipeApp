@@ -1,23 +1,7 @@
 spring:
-  liquibase:
-    change-log: 'classpath:db/dbchanges.xml'
-  datasource:
-    url: 'jdbc:mysql://localhost:3307/recipeApp?createDatabaseIfNotExist=true'
-    username: root
-    password: root
-    jpa:
-      database-platform: org.hibernate.dialect.MySQL8Dialect
-      jackson:
-        default-property-inclusion: non_null
-  servlet:
-    multipart:
-      max-file-size: 30MB
-      max-request-size: 30MB
-
-recipeapp:
-  security:
-    jwt:
-      password: 'rKqimrUg8L2OnlFJT59JVXRaJ'
-      expiration-time: 540000
+  config:
+    import: file:src/main/resources/application.yml
+  profiles:
+    active: 'prod'
 
 

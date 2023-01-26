@@ -16,4 +16,7 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
 
     @Query("SELECT SUM(r.rating) FROM Rating r where r.recipe.id = :recipeId")
     Integer ratingSum(Long recipeId);
+
+    @Query("SELECT r.rating FROM Rating r where r.recipe.id = :recipeId and r.account.id = :accountId")
+    Integer userRating(Long recipeId, Long accountId);
 }

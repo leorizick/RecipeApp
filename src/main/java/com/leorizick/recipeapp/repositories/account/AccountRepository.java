@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-    Page<Account> findAllAccountByUsernameContainingIgnoreCase(String username, Pageable pageable);
+    Page<Account> findAllAccountByUsernameStartsWithIgnoreCase(String username, Pageable pageable);
 }

@@ -44,6 +44,6 @@ public class AccountCrud {
     }
 
     public Page<Account> findAllAccountsByUsername(String username, Pageable pageable) {
-        return  accountRepository.findAllAccountByUsernameContainingIgnoreCase(username, pageable);
+        return  accountRepository.findAllAccountByUsernameStartsWithIgnoreCase(username, pageable);
     }
 }

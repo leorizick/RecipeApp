@@ -5,6 +5,7 @@ import com.leorizick.recipeapp.dto.recipe.CommentSummaryResponse;
 import com.leorizick.recipeapp.dto.recipe.IngredientSummaryResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
 import com.leorizick.recipeapp.dto.recipe.RecipeStepSummaryResponse;
+import com.leorizick.recipeapp.entities.recipe.Comment;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.repositories.like.RecipeLikeRepository;
 import com.leorizick.recipeapp.services.api.service.file.FileApiService;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 @Configuration
@@ -40,7 +42,9 @@ public class RecipeResponseMapper {
                     var author = modelMapper.map(src.getAuthor(), AccountSummaryResponse.class);
 
                     var comments = src.getComment()
-                            .stream().map(comment -> modelMapper.map(comment, CommentSummaryResponse.class))
+                            .stream().sorted(Comparator.comparingLong(Comment::getId)
+                                    .reversed()).limit(3)
+                            .map(comment -> modelMapper.map(comment, CommentSummaryResponse.class))
                             .collect(Collectors.toList());
 
                     var steps = src.getStep()
@@ -54,15 +58,15 @@ public class RecipeResponseMapper {
                     var liker = authenticationContext.getAccountId();
 
                     var ratesCount = ratingManagement.getRatingCount(src.getId());
+                    var userRating = ratingManagement.getUserRating(src.getId());
 
                     var rating = ratingManagement.getRatingTotal(src.getId());
 
-                    var listImages = fileApiService.searchAllRecipeImages(src.getId());
+                    var cover = fileApiService.searchRecipeCoverImgByRecipeId(src.getId());
+                    var listImages = fileApiService.searchAllNotCoverRecipeImages(src.getId());
 
                     return RecipeCrudResponse.builder()
                             .id(src.getId())
-                            .createdAt(LocalDateTime.now())
-                            .updatedAt(LocalDateTime.now())
                             .author(author)
                             .name(src.getName())
                             .description(src.getDescription())
@@ -71,10 +75,13 @@ public class RecipeResponseMapper {
                             .ingredients(ingredients)
                             .comment(comments)
                             .category(src.getCategory().getName())
+                            .categoryId(src.getCategory().getId())
                             .isLiked(recipeLikeRepository.isLiked(src.getId(), liker))
                             .likesCount(recipeLikeRepository.likeCount(src.getId()))
                             .ratesCount(ratesCount)
                             .rating(rating)
+                            .userRating(userRating)
+                            .cover(cover)
                             .recipeImages(listImages)
                             .build();
                 });

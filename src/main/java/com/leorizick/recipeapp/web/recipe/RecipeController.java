@@ -6,11 +6,15 @@ import com.leorizick.recipeapp.dto.recipe.RecipeSummaryResponse;
 import com.leorizick.recipeapp.services.api.service.recipe.RecipeApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 @RestController
 
@@ -32,9 +36,11 @@ public class RecipeController {
     @GetMapping(value = "/api/recipe")
     public ResponseEntity<Page<RecipeSummaryResponse>> findAll(Pageable pageable) {
         Page<RecipeSummaryResponse> recipePage = recipeApiService.findAll(pageable);
+        var teste = recipePage.stream().sorted(Comparator.comparing(RecipeSummaryResponse::getRatesCount).reversed()).collect(Collectors.toList());
+        var page = new PageImpl<>(teste);
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(recipePage);
+                .body(page);
     }
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")
