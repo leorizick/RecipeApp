@@ -1,0 +1,39 @@
+spring:
+  liquibase:
+    change-log: 'classpath:db/dbchanges.xml'
+  datasource:
+    url: 'jdbc:mysql://localhost:3307/recipeApp?createDatabaseIfNotExist=true'
+    username: root
+    password: root
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+      jackson:
+        default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+
+  mail:
+   host: smtp.gmail.com
+   username: horadorangoapp@gmail.com
+   password: qcqfhqbepztxyskq
+   port: 587
+   properties:
+     mail:
+       smtp:
+         socketFactory:
+           port: 465
+           class: javax.net.ssl.SSLSocketFactory
+         auth: true
+         starttls:
+           enable: true
+
+
+recipeapp:
+  security:
+    jwt:
+      password: 'rKqimrUg8L2OnlFJT59JVXRaJ'
+      expiration-time: 540000
+
+

@@ -6,17 +6,23 @@ import com.leorizick.recipeapp.dto.account.AccountCreationResponse;
 import com.leorizick.recipeapp.dto.account.AccountSummaryResponse;
 import com.leorizick.recipeapp.entities.account.Account;
 import com.leorizick.recipeapp.entities.account.Credential;
+import com.leorizick.recipeapp.services.api.service.email.EmailSender;
 import com.leorizick.recipeapp.services.domain.service.account.AccountCrud;
 import com.leorizick.recipeapp.services.domain.service.account.CredentialCrud;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.exceptions.AccountTypeNotAllowed;
+import com.leorizick.recipeapp.services.exceptions.EmailException;
+import com.leorizick.recipeapp.services.exceptions.RestErrorDto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Objects;
@@ -29,6 +35,8 @@ public class AccountApiService {
     private final AccountCrud accountCrud;
     private final CredentialCrud credentialCrud;
     private final ModelMapper modelMapper;
+    @Autowired
+    private EmailSender emailSender;
 
     private final AuthenticationContext authenticationContext;
 
@@ -40,6 +48,14 @@ public class AccountApiService {
         Credential credential = modelMapper.map(accountCreationRequest, Credential.class);
         credential.setAccount(newAccount);
         credentialCrud.save(credential);
+
+        try {
+            emailSender.sendWelcomeEmail(credential.getEmail());
+        }catch (MessagingException messagingException){
+            throw new EmailException();
+        }catch (UnsupportedEncodingException unsupportedEncodingException){
+            throw new EmailException();
+        }
 
         AccountCreationResponse accountCreationResponse = modelMapper.map(credential, AccountCreationResponse.class);
         return accountCreationResponse;
