@@ -48,6 +48,8 @@ public class Credential implements Serializable {
     @Column(nullable = false)
     private String password;
 
+    private String recoverCode;
+
     @OneToOne(optional = false)
     @JoinColumn(name = "account_id")
     private Account account;

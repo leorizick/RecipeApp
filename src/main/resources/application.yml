@@ -1,6 +1,6 @@
 spring:
-  config:
-    import: file:src/main/resources/application.yml
+#  config:
+#    import: file:src/main/resources/application.yml
   profiles:
     active: 'prod'
 

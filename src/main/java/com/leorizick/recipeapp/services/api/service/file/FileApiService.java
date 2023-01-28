@@ -4,6 +4,7 @@ import com.leorizick.recipeapp.entities.account.Account;
 import com.leorizick.recipeapp.entities.file.AccountImg;
 import com.leorizick.recipeapp.entities.file.RecipeImg;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
+import com.leorizick.recipeapp.services.domain.service.account.AccountCrud;
 import com.leorizick.recipeapp.services.domain.service.config.auth.AuthenticationContext;
 import com.leorizick.recipeapp.services.domain.service.file.FileManagement;
 import com.leorizick.recipeapp.services.domain.service.recipe.RecipeCrud;
@@ -33,6 +34,7 @@ public class FileApiService {
 
     private final FileManagement fileManagement;
     private final RecipeCrud recipeCrud;
+    private final AccountCrud accountCrud;
 
     private final String recipePath = "assets/images/recipes/";
     private final String accountPath = "assets/images/account/";

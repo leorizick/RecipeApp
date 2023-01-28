@@ -49,14 +49,6 @@ public class AccountApiService {
         credential.setAccount(newAccount);
         credentialCrud.save(credential);
 
-        try {
-            emailSender.sendWelcomeEmail(credential.getEmail());
-        }catch (MessagingException messagingException){
-            throw new EmailException();
-        }catch (UnsupportedEncodingException unsupportedEncodingException){
-            throw new EmailException();
-        }
-
         AccountCreationResponse accountCreationResponse = modelMapper.map(credential, AccountCreationResponse.class);
         return accountCreationResponse;
     }

@@ -48,4 +48,8 @@ public class CredentialCrud {
         save(credential);
     }
 
+    public Credential findCredentialByEmail(String email){
+        return credentialRepository.findByEmailAndIsEnabledTrue(email).orElseThrow(() -> new NotFoundException("Not found", "Email " + email + "Nao foi encontrado"));
+    }
+
 }
