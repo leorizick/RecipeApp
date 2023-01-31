@@ -15,6 +15,51 @@
         </insert>
 
         <insert tableName="food">
+            <column name="name" value="Pão de Forma"/>
+            <column name="calories" value="260"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="48"/>
+            <column name="protein" value="11.40"/>
+            <column name="fat" value="2.60"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Pão Francês"/>
+            <column name="calories" value="245.6"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="53.7"/>
+            <column name="protein" value="6.8"/>
+            <column name="fat" value="0.4"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Presunto"/>
+            <column name="calories" value="155"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="17"/>
+            <column name="fat" value="9.50"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Peito de Peru"/>
+            <column name="calories" value="120"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="1"/>
+            <column name="protein" value="21"/>
+            <column name="fat" value="4"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Salame"/>
+            <column name="calories" value="398"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="2.90"/>
+            <column name="protein" value="25.80"/>
+            <column name="fat" value="30.60"/>
+        </insert>
+
+        <insert tableName="food">
             <column name="name" value="Queijo ricota"/>
             <column name="calories" value="140 "/>
             <column name="weight" value="100"/>
@@ -42,22 +87,41 @@
         </insert>
 
         <insert tableName="food">
-            <column name="name" value="Carne de porco"/>
-            <column name="calories" value="393"/>
+            <column name="name" value="Carne Suina Grelhada"/>
+            <column name="calories" value="222"/>
             <column name="weight" value="100"/>
             <column name="carbohydrate" value="0"/>
-            <column name="protein" value="24.00"/>
-            <column name="fat" value="33.0"/>
+            <column name="protein" value="26.96"/>
+            <column name="fat" value="11.82"/>
         </insert>
 
         <insert tableName="food">
-            <column name="name" value="Carne de porco"/>
-            <column name="calories" value="393"/>
+            <column name="name" value="Linguiça Suina"/>
+            <column name="calories" value="245"/>
             <column name="weight" value="100"/>
             <column name="carbohydrate" value="0"/>
-            <column name="protein" value="24.00"/>
-            <column name="fat" value="33.0"/>
+            <column name="protein" value="18.30"/>
+            <column name="fat" value="18.50"/>
         </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Carne Bovina Cozida"/>
+            <column name="calories" value="338"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="24.20"/>
+            <column name="fat" value="26"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Carne Bovina Frita"/>
+            <column name="calories" value="338"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="24.20"/>
+            <column name="fat" value="26"/>
+        </insert>
+
 
         <insert tableName="food">
             <column name="name" value="Bacon"/>
@@ -105,12 +169,606 @@
         </insert>
 
         <insert tableName="food">
+            <column name="name" value="Quejo Cheddar"/>
+            <column name="calories" value="402.66"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="1.29"/>
+            <column name="protein" value="24.90"/>
+            <column name="fat" value="33.10"/>
+        </insert>
+
+        <insert tableName="food">
             <column name="name" value="Arroz cozido"/>
             <column name="calories" value="128"/>
             <column name="weight" value="100"/>
             <column name="carbohydrate" value="28.1"/>
             <column name="protein" value="2.5"/>
             <column name="fat" value="0.2"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Banana Nanica"/>
+            <column name="calories" value="97"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="22.20"/>
+            <column name="protein" value="1.20"/>
+            <column name="fat" value="0.40"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Banana Maçã"/>
+            <column name="calories" value="87"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="22.30"/>
+            <column name="protein" value="1.80"/>
+            <column name="fat" value="0.10"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Banana Prata"/>
+            <column name="calories" value="99"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="23.80"/>
+            <column name="protein" value="1.30"/>
+            <column name="fat" value="0.30"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Frango Peito Cozido"/>
+            <column name="calories" value="163"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="31.50"/>
+            <column name="fat" value="3.20"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Frango Coxa Frita"/>
+            <column name="calories" value="195"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="28.62"/>
+            <column name="fat" value="8.8"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Feijão Cozido"/>
+            <column name="calories" value="69.10"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="12.20"/>
+            <column name="protein" value="4.40"/>
+            <column name="fat" value="0.30"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Batata Doce Cozida"/>
+            <column name="calories" value="77"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="18.40"/>
+            <column name="protein" value="0.60"/>
+            <column name="fat" value="0.10"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Batata Cozida"/>
+            <column name="calories" value="80"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="18.9"/>
+            <column name="protein" value="0.9"/>
+            <column name="fat" value="0.2"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Batata Frita"/>
+            <column name="calories" value="280"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="36"/>
+            <column name="protein" value="4.30"/>
+            <column name="fat" value="13.20"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Aveia Farelo"/>
+            <column name="calories" value="246"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="66.22"/>
+            <column name="protein" value="17.30"/>
+            <column name="fat" value="7.03"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Aveia Flocos"/>
+            <column name="calories" value="356.60"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="53.30"/>
+            <column name="protein" value="15.30"/>
+            <column name="fat" value="8.60"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Molho de Tomate"/>
+            <column name="calories" value="43.05"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="5.25"/>
+            <column name="protein" value="0.90"/>
+            <column name="fat" value="2.05"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Tomate"/>
+            <column name="calories" value="15"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="3.10"/>
+            <column name="protein" value="1.10"/>
+            <column name="fat" value="0.20"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Maçã"/>
+            <column name="calories" value="52"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="13.81"/>
+            <column name="protein" value="0.26"/>
+            <column name="fat" value="0.17"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Leite Integral"/>
+            <column name="calories" value="60"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="5"/>
+            <column name="protein" value="3"/>
+            <column name="fat" value="3"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Leite Desnatado"/>
+            <column name="calories" value="30"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="4.50"/>
+            <column name="protein" value="3"/>
+            <column name="fat" value="0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Leite Condensado"/>
+            <column name="calories" value="325"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="55"/>
+            <column name="protein" value="7"/>
+            <column name="fat" value="8"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Chocolate ao leite"/>
+            <column name="calories" value="524"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="60"/>
+            <column name="protein" value="6.40"/>
+            <column name="fat" value="28"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Chocolate meio amargo"/>
+            <column name="calories" value="538"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="62.40"/>
+            <column name="protein" value="4.90"/>
+            <column name="fat" value="29.90"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Alface"/>
+            <column name="calories" value="11"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="1.7"/>
+            <column name="protein" value="1.3"/>
+            <column name="fat" value="0.2"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Peixe Frito"/>
+            <column name="calories" value="223"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="27.40"/>
+            <column name="fat" value="11.80"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Peixe Assado"/>
+            <column name="calories" value="122"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="26.60"/>
+            <column name="fat" value="0.90"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Mandioca Frita"/>
+            <column name="calories" value="240"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="40.24"/>
+            <column name="protein" value="1.12"/>
+            <column name="fat" value="8.96"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Mandioca Cozida"/>
+            <column name="calories" value="125"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="30.10"/>
+            <column name="protein" value="0.60"/>
+            <column name="fat" value="0.30"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Polenta Frita"/>
+            <column name="calories" value="89.39"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="10.96"/>
+            <column name="protein" value="0.99"/>
+            <column name="fat" value="4.84"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Beringela Frita"/>
+            <column name="calories" value="75.55"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="8.73"/>
+            <column name="protein" value="0.83"/>
+            <column name="fat" value="4.82"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Beringela Cozida"/>
+            <column name="calories" value="19"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="4.50"/>
+            <column name="protein" value="0.70"/>
+            <column name="fat" value="0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Chuchu Cozido"/>
+            <column name="calories" value="24"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="5.10"/>
+            <column name="protein" value="0.62"/>
+            <column name="fat" value="0.48"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Mamão Papaia"/>
+            <column name="calories" value="40"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="10.40"/>
+            <column name="protein" value="0.50"/>
+            <column name="fat" value="0.10"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Kiwi"/>
+            <column name="calories" value="51"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="11.50"/>
+            <column name="protein" value="1.30"/>
+            <column name="fat" value="0.60"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Morango"/>
+            <column name="calories" value="30"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="6.80"/>
+            <column name="protein" value="0.90"/>
+            <column name="fat" value="0.30"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Uva"/>
+            <column name="calories" value="53"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="13.60"/>
+            <column name="protein" value="0.70"/>
+            <column name="fat" value="0.20"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Pêra"/>
+            <column name="calories" value="58"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="15.46"/>
+            <column name="protein" value="0.38"/>
+            <column name="fat" value="0.12"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Abacaxi"/>
+            <column name="calories" value="48"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="12.30"/>
+            <column name="protein" value="0.90"/>
+            <column name="fat" value="0.10"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Abobora Cabotian"/>
+            <column name="calories" value="48"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="10.80"/>
+            <column name="protein" value="1.40"/>
+            <column name="fat" value="0.70"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Abobora Moranga"/>
+            <column name="calories" value="29"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="6"/>
+            <column name="protein" value="0.40"/>
+            <column name="fat" value="0.80"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Sorvete"/>
+            <column name="calories" value="170"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="26.67"/>
+            <column name="protein" value="2.83"/>
+            <column name="fat" value="6"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Açai com granola"/>
+            <column name="calories" value="268.32"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="42.16"/>
+            <column name="protein" value="3.59"/>
+            <column name="fat" value="9.48"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Iogurte saborizado"/>
+            <column name="calories" value="64.32"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="5.40"/>
+            <column name="protein" value="4.37"/>
+            <column name="fat" value="2.91"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Iogurte natural"/>
+            <column name="calories" value="60"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="5.12"/>
+            <column name="protein" value="3.53"/>
+            <column name="fat" value="2.82"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Lentilha Cozida"/>
+            <column name="calories" value="93"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="16.30"/>
+            <column name="protein" value="6.30"/>
+            <column name="fat" value="0.50"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Brocolis Cozido"/>
+            <column name="calories" value="25"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="4.40"/>
+            <column name="protein" value="2.10"/>
+            <column name="fat" value="0.50"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Grão de Bico cozido"/>
+            <column name="calories" value="164"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="27.42"/>
+            <column name="protein" value="8.86"/>
+            <column name="fat" value="2.59"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Couve refogada"/>
+            <column name="calories" value="90"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="8.70"/>
+            <column name="protein" value="1.70"/>
+            <column name="fat" value="6.60"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Couve crua"/>
+            <column name="calories" value="27"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="4.30"/>
+            <column name="protein" value="2.90"/>
+            <column name="fat" value="0.50"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Pizza"/>
+            <column name="calories" value="284.72"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="29.51"/>
+            <column name="protein" value="13.74"/>
+            <column name="fat" value="12.21"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Pastel"/>
+            <column name="calories" value="276.88"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="33.39"/>
+            <column name="protein" value="11.44"/>
+            <column name="fat" value="10.56"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Lasanha"/>
+            <column name="calories" value="209"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="15.87"/>
+            <column name="protein" value="15.46"/>
+            <column name="fat" value="9.30"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Cebola"/>
+            <column name="calories" value="39"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="8.90"/>
+            <column name="protein" value="1.70"/>
+            <column name="fat" value="0.10"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Bolo de Fubá"/>
+            <column name="calories" value="321"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="41"/>
+            <column name="protein" value="5"/>
+            <column name="fat" value="15.60"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Bolo de Chocolate"/>
+            <column name="calories" value="363.33"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="58.33"/>
+            <column name="protein" value="6.16"/>
+            <column name="fat" value="12.17"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Brigadeiro"/>
+            <column name="calories" value="334.48"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="54.86"/>
+            <column name="protein" value="7.52"/>
+            <column name="fat" value="10.14"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Achocolatado em pó"/>
+            <column name="calories" value="375"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="85"/>
+            <column name="protein" value="3.50"/>
+            <column name="fat" value="3"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Cenoura Cozida"/>
+            <column name="calories" value="30"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="6.70"/>
+            <column name="protein" value="0.80"/>
+            <column name="fat" value="0.20"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Refrigerante"/>
+            <column name="calories" value="42.50"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="10.50"/>
+            <column name="protein" value="0"/>
+            <column name="fat" value="0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Macarrão"/>
+            <column name="calories" value="360"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="76.25"/>
+            <column name="protein" value="11"/>
+            <column name="fat" value="1"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Repolho Cozido"/>
+            <column name="calories" value="22"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="4.46"/>
+            <column name="protein" value="1.02"/>
+            <column name="fat" value="0.43"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Almeirão Cru"/>
+            <column name="calories" value="18"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="3.30"/>
+            <column name="protein" value="1.80"/>
+            <column name="fat" value="0.20"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Creme de leite"/>
+            <column name="calories" value="180"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="4"/>
+            <column name="protein" value="4"/>
+            <column name="fat" value="16"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Ervilha enlatada"/>
+            <column name="calories" value="74"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="13.40"/>
+            <column name="protein" value="4.60"/>
+            <column name="fat" value="0.40"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Farinha de trigo"/>
+            <column name="calories" value="360"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="75.10"/>
+            <column name="protein" value="9.80"/>
+            <column name="fat" value="01.40"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Açucar"/>
+            <column name="calories" value="398"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="99.50"/>
+            <column name="protein" value="0"/>
+            <column name="fat" value="0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Café"/>
+            <column name="calories" value="75"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="0"/>
+            <column name="protein" value="0"/>
+            <column name="fat" value="0"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Beterraba Cozida"/>
+            <column name="calories" value="32"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="7.20"/>
+            <column name="protein" value="1.30"/>
+            <column name="fat" value="0.10"/>
+        </insert>
+
+        <insert tableName="food">
+            <column name="name" value="Almondega Bovina"/>
+            <column name="calories" value="272"/>
+            <column name="weight" value="100"/>
+            <column name="carbohydrate" value="14.30"/>
+            <column name="protein" value="18.20"/>
+            <column name="fat" value="15.80"/>
         </insert>
 
     </changeSet>

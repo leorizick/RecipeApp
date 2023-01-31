@@ -36,11 +36,9 @@ public class RecipeController {
     @GetMapping(value = "/api/recipe")
     public ResponseEntity<Page<RecipeSummaryResponse>> findAll(Pageable pageable) {
         Page<RecipeSummaryResponse> recipePage = recipeApiService.findAll(pageable);
-        var teste = recipePage.stream().sorted(Comparator.comparing(RecipeSummaryResponse::getRatesCount).reversed()).collect(Collectors.toList());
-        var page = new PageImpl<>(teste);
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(page);
+                .body(recipePage);
     }
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")

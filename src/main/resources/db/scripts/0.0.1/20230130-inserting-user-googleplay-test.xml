@@ -1,0 +1,44 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20230130-inserting-user-googleplay-test" author="leorizick">
+        <insert tableName="account">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20230130"/>
+            <column name="updated_at" value="20230130"/>
+            <column name="name" value="GooglePlay"/>
+            <column name="username" value="GooglePlay"/>
+            <column name="birth" value="1970-01-01"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="credential">
+            <column name="version" value="0"/>
+            <column name="created_at" value="20230130"/>
+            <column name="updated_at" value="20230130"/>
+            <column name="email" value="googleplaytest@gmail.com"/>
+            <column name="password" value="$2a$10$x.4malKSkXG7aMgijQNl3u1jXH4.LWu0r7GFGtqG/lYpy4ZJLtiMa"/>
+            <column name="enabled" valueBoolean="true"/>
+            <column name="account_id" valueComputed="(SELECT id FROM account WHERE username = 'GooglePlay')"/>
+        </insert>
+
+        <insert tableName="credential_profile">
+            <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')"/>
+            <column name="credential_id"
+                    valueComputed="(SELECT id FROM credential WHERE email = 'googleplaytest@gmail.com')"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20230130-inserting-user-googleplay-test-img" author="leorizick">
+        <insert tableName="account_img">
+            <column name="created_at" value="20230130"/>
+            <column name="name" value="2.png"/>
+            <column name="path" value="assets/images/account/2/2.png"/>
+            <column name="account_id" value="2"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

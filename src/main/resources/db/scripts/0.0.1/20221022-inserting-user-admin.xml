@@ -18,20 +18,20 @@
             <column name="version" value="0"/>
             <column name="created_at" value="20220930"/>
             <column name="updated_at" value="20220930"/>
-            <column name="email" value="admin@recipe.com"/>
-            <column name="password" value="$2a$10$j4bTU7Ufndz9/sHrlC5xeeZ4aKAhOd24m.Rl8QxgbtRpmFlpyHGri"/>
+            <column name="email" value="horadorangoapp@gmail.com"/>
+            <column name="password" value="$2a$10$yClb88xfRyREF1cwL4l.LOgfzSzJo6ofVVy7OOLM1mgNeTwc6Q.3i"/>
             <column name="enabled" valueBoolean="true" />
             <column name="account_id" valueComputed="(SELECT id FROM account WHERE username = 'Hora do Rango')" />
         </insert>
 
         <insert tableName="credential_profile">
             <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'ADMIN')" />
-            <column name="credential_id" valueComputed="(SELECT id FROM credential WHERE email = 'admin@recipe.com')" />
+            <column name="credential_id" valueComputed="(SELECT id FROM credential WHERE email = 'horadorangoapp@gmail.com')" />
         </insert>
 
         <insert tableName="credential_profile">
             <column name="profile_id" valueComputed="(SELECT id FROM profile WHERE name = 'USER')" />
-            <column name="credential_id" valueComputed="(SELECT id FROM credential WHERE email = 'admin@recipe.com')" />
+            <column name="credential_id" valueComputed="(SELECT id FROM credential WHERE email = 'horadorangoapp@gmail.com')" />
         </insert>
     </changeSet>
 
