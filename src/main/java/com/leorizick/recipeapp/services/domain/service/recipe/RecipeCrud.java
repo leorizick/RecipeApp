@@ -84,6 +84,6 @@ public class RecipeCrud {
     }
 
     public Page<Recipe> findAllByName(String name, Pageable pageable) {
-        return recipeRepository.findAllByNameStartsWithIgnoreCase( name, pageable);
+        return recipeRepository.findAllByEnabledIsTrueAndNameStartsWithIgnoreCase( name, pageable);
     }
 }

@@ -1,7 +1,6 @@
 package com.leorizick.recipeapp.services.domain.service.mapping.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
-import com.leorizick.recipeapp.entities.file.RecipeImg;
 import com.leorizick.recipeapp.entities.recipe.Ingredient;
 import com.leorizick.recipeapp.entities.recipe.Recipe;
 import com.leorizick.recipeapp.entities.recipe.RecipeStep;
@@ -13,8 +12,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Configuration

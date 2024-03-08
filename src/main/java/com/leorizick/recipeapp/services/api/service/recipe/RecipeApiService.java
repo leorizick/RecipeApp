@@ -39,6 +39,7 @@ public class RecipeApiService {
     }
 
     @Transactional
+    
     public RecipeCrudResponse create(RecipeCreationRequest recipeCreationRequest) {
         Recipe recipe = modelMapper.map(recipeCreationRequest, Recipe.class);
         recipe = recipeCrud.save(recipe);

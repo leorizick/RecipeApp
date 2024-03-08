@@ -45,6 +45,7 @@ public class CredentialCrud {
             throw new AlreadyDeletedException(Credential.class, id.toString());
 
         credential.setEnabled(false);
+        credential.setEmail("@usuarioInativo" + id);
         save(credential);
     }
 

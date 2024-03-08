@@ -36,6 +36,7 @@ public class RecipeController {
     @GetMapping(value = "/api/recipe")
     public ResponseEntity<Page<RecipeSummaryResponse>> findAll(Pageable pageable) {
         Page<RecipeSummaryResponse> recipePage = recipeApiService.findAll(pageable);
+
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(recipePage);

@@ -98,4 +98,9 @@ public class AccountApiService {
         return  listAccount.map(account -> modelMapper.map(account, AccountSummaryResponse.class));
 
     }
+
+    public void deleteAccount(Long id) {
+        var credential = accountCrud.deleteById(id);
+        credentialCrud.delete(credential);
+    }
 }

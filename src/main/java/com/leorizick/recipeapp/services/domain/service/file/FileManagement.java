@@ -46,6 +46,13 @@ public class FileManagement {
         }
         return img.getName();
     }
+
+    public void deleteAccountImage(Long id) {
+        var img = accountImgRepository.getAccountImage(id);
+        if(img != null){
+            accountImgRepository.deleteById(img.getId());
+        }
+    }
     public AccountImg saveAccountImg(AccountImg accountImg){
         accountImgRepository.deleteByRecipeAndAccountId(accountImg.getAccount().getId());
         return accountImgRepository.save(accountImg);

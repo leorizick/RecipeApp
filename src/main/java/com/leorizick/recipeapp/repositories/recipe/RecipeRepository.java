@@ -22,5 +22,5 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query("select r from Recipe r where r.category.id = :id and r.enabled = true")
     Page<Recipe> findAllByCategoryId(Pageable pageable, Long id);
 
-    Page<Recipe> findAllByNameStartsWithIgnoreCase(String name, Pageable pageable);
+    Page<Recipe> findAllByEnabledIsTrueAndNameStartsWithIgnoreCase(String name, Pageable pageable);
 }
