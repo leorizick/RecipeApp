@@ -2,14 +2,19 @@ package com.leorizick.recipeapp.web.recipe;
 
 import com.leorizick.recipeapp.dto.recipe.RecipeCreationRequest;
 import com.leorizick.recipeapp.dto.recipe.RecipeCrudResponse;
+import com.leorizick.recipeapp.dto.recipe.RecipeSummaryResponse;
 import com.leorizick.recipeapp.services.api.service.recipe.RecipeApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 @RestController
 
@@ -29,8 +34,54 @@ public class RecipeController {
 
     @PreAuthorize("hasAuthority('GET_RECIPE')")
     @GetMapping(value = "/api/recipe")
-    public ResponseEntity<Page<RecipeCrudResponse>> findAll(Pageable pageable) {
-        Page<RecipeCrudResponse> recipePage = recipeApiService.findAll(pageable);
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAll(Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAll(pageable);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/myRecipes")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByAuthenticatedUser(Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountId(pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/userRecipes/{id}")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByUser(@PathVariable Long id,  Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountId(id, pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/myLikedRecipes")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllLikedRecipes(Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByAccountIdAndLiked(pageable);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/category/{id}")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByCategoryId(@PathVariable Long id,  Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByCategoryId(pageable, id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(recipePage);
+    }
+
+    @PreAuthorize("hasAuthority('GET_RECIPE')")
+    @GetMapping(value = "/api/recipe/filter")
+    public ResponseEntity<Page<RecipeSummaryResponse>> findAllByName(@RequestParam("name")String name,  Pageable pageable) {
+        Page<RecipeSummaryResponse> recipePage = recipeApiService.findAllByName(name, pageable);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(recipePage);

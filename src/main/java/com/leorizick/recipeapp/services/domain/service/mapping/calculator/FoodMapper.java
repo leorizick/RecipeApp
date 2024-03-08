@@ -30,8 +30,16 @@ public class FoodMapper {
         modelMapper.createTypeMap(FoodCreationRequest.class, Food.class).setConverter(context -> {
             var src = context.getSource();
             Food food = foodManagement.findById(src.getFoodId());
-            food.setMultiplier(src.getMultiplier());
-            return food;
+            Food newFood = Food.builder()
+                    .name(food.getName())
+                    .calories(food.getCalories())
+                    .fat(food.getFat())
+                    .carbohydrate(food.getCarbohydrate())
+                    .protein(food.getProtein())
+                    .multiplier(src.getMultiplier())
+                    .weight(food.getWeight())
+                    .build();
+            return newFood;
         });
     }
 }

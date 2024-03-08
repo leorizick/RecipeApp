@@ -41,4 +41,22 @@ public class RatingManagement {
         return ratingTotal;
     }
 
+    public Integer getUserRating(Long recipeId) {
+
+        var rating = ratingRepository.userRating(recipeId, authenticationContext.getAccountId());
+        if(rating == null){
+            return 0;
+        }
+        return  rating;
+    }
+
+    public Integer getCommentAuthorRating(Long recipeId, Long accountId) {
+
+        var rating = ratingRepository.userRating(recipeId, accountId);
+        if(rating == null){
+            return 0;
+        }
+        return  rating;
+    }
+
 }

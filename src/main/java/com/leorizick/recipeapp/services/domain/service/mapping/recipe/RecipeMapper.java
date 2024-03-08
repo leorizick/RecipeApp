@@ -33,10 +33,12 @@ public class RecipeMapper {
             if (recipe == null) {
                 recipe = new Recipe();
                 recipe.setAuthor(authenticationContext.getAccount());
+
             }
 
             var ingredients = src.getIngredients()
                     .stream().map(ingredient -> modelMapper.map(ingredient, Ingredient.class)).collect(Collectors.toList());
+
 
             var steps = src.getSteps()
                     .stream().map(step -> modelMapper.map(step, RecipeStep.class)).collect(Collectors.toList());
@@ -46,6 +48,7 @@ public class RecipeMapper {
             recipe.setDescription(src.getDescription());
             recipe.setIngredients(ingredients);
             recipe.setStep(steps);
+
             recipe.setComment(new ArrayList<>());
             recipe.setEnabled(true);
 

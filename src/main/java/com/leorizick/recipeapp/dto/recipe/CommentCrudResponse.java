@@ -16,10 +16,10 @@ import java.time.LocalDateTime;
 public class CommentCrudResponse {
 
     private Long id;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime date;
     private AccountSummaryResponse author;
     private Long recipe;
+    private Integer authorRating;
     private String body;
     private boolean enabled;
 

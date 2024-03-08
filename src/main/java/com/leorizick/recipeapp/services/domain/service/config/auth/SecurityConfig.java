@@ -34,6 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/v1/auth/token").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/account/create").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/account/forgot/password/{email}").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/account/change/password/code").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement(cust -> cust.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

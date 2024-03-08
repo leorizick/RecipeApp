@@ -1,0 +1,5 @@
+Para exclusão dos dados da sua conta no aplicativo Hora Do Rango Receitas siga os passos:
+Puxe o menu deslizante, ou clique no icone de perfil
+Clique em Profile
+Clique em Deletar minha conta
+Seus dados como usuario, nome, email, senha serao apagados de nosso banco de dados.

@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @Builder
 public class FoodResponse {
 
+
     private String name;
 
     private BigDecimal calories;

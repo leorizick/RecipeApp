@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/category")
 public class RecipeCategoryController {
 
     @Autowired
@@ -32,8 +31,7 @@ public class RecipeCategoryController {
                 .body(category);
     }
 
-    @GetMapping
-    @ResponseBody
+    @GetMapping(value= "/api/category")
     public ResponseEntity<Page<RecipeCategory>> findAll(Pageable pageable) {
         Page<RecipeCategory> categories = service.findAll(pageable);
         return ResponseEntity
@@ -42,7 +40,7 @@ public class RecipeCategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<RecipeCategory> save(@RequestBody RecipeCategory recipeCategory){
+    public ResponseEntity<RecipeCategory> save(@RequestBody RecipeCategory recipeCategory) {
         RecipeCategory category = service.save(recipeCategory);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -50,7 +48,7 @@ public class RecipeCategoryController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<RecipeCategory> update(@RequestBody RecipeCategory recipeCategory){
+    public ResponseEntity<RecipeCategory> update(@RequestBody RecipeCategory recipeCategory) {
         RecipeCategory category = service.update(recipeCategory);
         return ResponseEntity
                 .noContent()
@@ -58,7 +56,7 @@ public class RecipeCategoryController {
     }
 
     @PostMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity
                 .noContent()
