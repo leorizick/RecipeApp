@@ -36,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/account/create").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/account/forgot/password/{email}").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/account/change/password/code").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/page/privacy-policy").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/page/delete-account").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement(cust -> cust.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
