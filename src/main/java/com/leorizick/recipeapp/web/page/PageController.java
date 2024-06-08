@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
-@RestController
-@RequiredArgsConstructor
+@Controller
 public class PageController {
     @GetMapping(value = "/api/page/privacy-policy")
     public String showPrivacyPolicy() {
-        return "POLITICA DE PRIVACIDADE";
+        return "privacy-policy";
     }
 
     @GetMapping(value = "/api/page/delete-account")
